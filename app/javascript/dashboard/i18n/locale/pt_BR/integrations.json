@@ -17,7 +17,7 @@
       "ERROR": "Ocorreu um erro ao tentar conectar com o Shopify. Por favor, tente novamente ou entre em contato com o suporte se o problema persistir."
     },
     "HEADER": "Integrações",
-    "DESCRIPTION": "Chatwoot se integra com várias ferramentas e serviços para melhorar a eficiência de seu time. Explore a lista abaixo para configurar seus aplicativos favoritos.",
+    "DESCRIPTION": "Nexus IA se integra com várias ferramentas e serviços para melhorar a eficiência de seu time. Explore a lista abaixo para configurar seus aplicativos favoritos.",
     "LEARN_MORE": "Aprenda mais sobre integrações",
     "LOADING": "Obtendo integrações",
     "SEARCH_PLACEHOLDER": "Pesquisar integrações...",
@@ -44,7 +44,7 @@
       "NO_RESULTS": "Nenhum webhook encontrado correspondente à sua busca",
       "FORM": {
         "CANCEL": "Cancelar",
-        "DESC": "Webhook Os eventos fornecem informações em tempo real sobre o que está acontecendo na sua conta do Chatwoot. Digite um URL válido para configurar um retorno de chamada.",
+        "DESC": "Webhook Os eventos fornecem informações em tempo real sobre o que está acontecendo na sua conta do Nexus IA. Digite um URL válido para configurar um retorno de chamada.",
         "SUBSCRIPTIONS": {
           "LABEL": "Eventos",
           "EVENTS": {
