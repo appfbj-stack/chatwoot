@@ -1,0 +1,5 @@
+[Unit]
+Wants=kairos-crm-web.1.service kairos-crm-worker.1.service
+
+[Install]
+WantedBy=multi-user.target

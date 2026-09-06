@@ -1,0 +1,6 @@
+[Unit]
+Description=Kairos CRM Background Worker
+Wants=kairos-crm-worker.1.service
+
+[Install]
+WantedBy=multi-user.target

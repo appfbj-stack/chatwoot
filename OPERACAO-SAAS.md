@@ -2,61 +2,53 @@
 
 ## Nome oficial
 
-- `NEXUS IA Atendimento`
-  - este repositório é o projeto do Chatwoot
+- `Kairos CRM`
+  - este repositorio e o fork do Chatwoot
   - atendimento
   - inbox
   - agentes
   - WhatsApp
-  - automações de conversa
-
-## Repositórios
-
-- Atendimento:
-  - `https://github.com/appfbj-stack/chatwoot`
-
-- CRM:
-  - `https://github.com/appfbj-stack/gestao-de-clientes-de-som`
+  - automacoes de conversa
 
 ## Regra principal
 
-- `chatwoot` = `NEXUS IA Atendimento`
-- `gestao-de-clientes-de-som` = `NEXUS IA CRM`
-- não misturar stack de um no outro
+- `chatwoot` (este repo) = `Kairos CRM`
+- tudo abaixo vira `Kairos CRM`, nada de manter `Chatwoot` / `NEXUS IA`
 
-## Domínios
+## Marca
 
-- Atendimento:
-  - `chat.seudominio.com`
+- nome visivel em todo lugar: `Kairos CRM`
+- logo: wordmark `Kairos CRM` (sem simbolo grafico)
+- paleta: emerald-500 + slate-900 (igual ao resto da familia Kairos)
 
-- CRM:
-  - `crm.seudominio.com`
+## Dominios
 
-## Função deste repositório
+- Atendimento (Kairos CRM):
+  - `chat.fbautomacao.space`
 
-Este repositório deve manter:
+## Stack
 
-- stack docker do Chatwoot
-- branding do Chatwoot
+- 100% VPS Dokploy (187.77.229.227)
+- Postgres + pgvector: `kairos-shared-pg` (database `chatwoot_db`)
+- Redis: container proprio no Dokploy
+- App Rails + Sidekiq: container proprio
+- Caddy reverse proxy com wildcard SSL ja existente
+
+## Repositorio
+
+- Atendimento: `https://github.com/appfbj-stack/chatwoot`
+
+## Funcao deste repositorio
+
+Este repositorio deve manter:
+
+- stack docker do fork Chatwoot rebrandado pra Kairos CRM
+- wordmark `Kairos CRM` em todos os assets
 - overrides do Super Admin
 - `.env.example` do atendimento
 - deploy do atendimento
 
-## Integração com o CRM
-
-O `NEXUS IA Atendimento` conversa com o `NEXUS IA CRM` por:
-
-- API
-- webhook
-
-Webhook esperado no CRM:
-
-- `https://crm.seudominio.com/api/chatwoot/webhook`
-
 ## Nome que deve lembrar
 
-- nome novo do Chatwoot:
-  - `NEXUS IA Atendimento`
-
-- nome do CRM:
-  - `NEXUS IA CRM`
+- `Kairos CRM` (era `NEXUS IA Atendimento`)
+- descartar `NEXUS IA` deste repo
