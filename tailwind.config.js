@@ -279,6 +279,111 @@ const tailwindConfig = {
         ]),
       },
     }),
+    // Kairos: design system tokens `n-*` (todos os ~100 usados no Chatwoot)
+    // addUtilities EXPLÍCITO com cada prefixo (border-, bg-, text-, outline-, border-t-, etc)
+    // Cobre todas as variantes que @apply dos componentes Vue precisa.
+    function ({ addUtilities }) {
+      const radix = require('@radix-ui/colors');
+      const slate = radix.slate;
+      const slateDarkC = radix.slateDark;
+      const jade = radix.jade;
+      const jadeDark = radix.jadeDark;
+
+      const tokens = {
+        weak: slate.slate4,
+        strong: slate.slate8,
+        emphasis: slate.slate12,
+        brand: jadeDark.jade10,
+        background: slate.slate1,
+        card: slate.slate2,
+        container: slate.slate1,
+        portal: jade.jade2,
+        'portal-soft': jade.jade3,
+        black: slateDarkC.slate1,
+        'button-color': slate.slate1,
+        'call-widget': slate.slate2,
+        'call-widget-border': slate.slate4,
+        'call-widget-text': slate.slate11,
+        'call-widget-sub-text': slate.slate9,
+        'dropdown-body': slate.slate2,
+        'dropdown-item': slate.slate3,
+        'dropdown-section': slate.slate4,
+        'input-background': slate.slate2,
+        'label-border': slate.slate6,
+        'label-color': slate.slate9,
+      };
+      for (let i = 1; i <= 12; i++) {
+        tokens['slate-' + i] = slate['slate' + i];
+        tokens['blue-' + i] = radix.blue['blue' + i];
+        tokens['amber-' + i] = radix.amber['amber' + i];
+        tokens['ruby-' + i] = radix.ruby['ruby' + i];
+        tokens['iris-' + i] = radix.iris['iris' + i];
+        tokens['teal-' + i] = radix.teal['teal' + i];
+        tokens['gray-' + i] = radix.gray['gray' + i];
+        tokens['violet-' + i] = radix.violet['violet' + i];
+        tokens['red-' + i] = radix.red['red' + i];
+      }
+      tokens['alpha-1'] = slate.slateA3;
+      tokens['alpha-2'] = slate.slateA5;
+      tokens['alpha-3'] = slate.slateA7;
+      tokens['alpha-white'] = '#ffffff20';
+      tokens['solid-1'] = slate.slate4;
+      tokens['solid-2'] = slate.slate5;
+      tokens['solid-3'] = slate.slate6;
+      tokens['solid-active'] = slate.slate12;
+      tokens['solid-amber'] = radix.amber.amber9;
+      tokens['solid-blue'] = radix.blue.blue9;
+      tokens['solid-iris'] = radix.iris.iris9;
+      tokens['surface-1'] = slate.slate1;
+      tokens['surface-2'] = slate.slate2;
+      tokens['woot-600'] = jadeDark.jade8;
+      tokens['woot-700'] = jadeDark.jade7;
+      tokens['amber-text'] = radix.amber.amber11;
+      tokens['blue-text'] = radix.blue.blue11;
+      tokens['blue-border'] = radix.blue.blue6;
+
+      const prefixes = [
+        { name: '', type: 'color' },
+        { name: 'border-', type: 'border-color' },
+        { name: 'bg-', type: 'background-color' },
+        { name: 'text-', type: 'color' },
+        { name: 'outline-', type: 'outline-color' },
+        { name: 'border-t-', type: 'border-top-color' },
+        { name: 'border-r-', type: 'border-right-color' },
+        { name: 'border-b-', type: 'border-bottom-color' },
+        { name: 'border-l-', type: 'border-left-color' },
+        { name: 'ring-', type: '--tw-ring-color' },
+        { name: 'divide-', type: 'border-color' },
+        { name: 'placeholder-', type: 'color' },
+        { name: 'caret-', type: 'caret-color' },
+        { name: 'accent-', type: 'accent-color' },
+        { name: 'fill-', type: 'fill' },
+        { name: 'stroke-', type: 'stroke' },
+        { name: 'decoration-', type: 'text-decoration-color' },
+        { name: 'from-', type: '--tw-gradient-from' },
+        { name: 'via-', type: '--tw-gradient-via' },
+        { name: 'to-', type: '--tw-gradient-to' },
+      ];
+
+      const utilities = {};
+      for (const [key, value] of Object.entries(tokens)) {
+        for (const { name: prefix, type: prop } of prefixes) {
+          const cls = '.' + prefix + 'n-' + key;
+          if (prop === '--tw-ring-color') {
+            utilities[cls] = { '--tw-ring-color': value };
+          } else if (prop === '--tw-gradient-from') {
+            utilities[cls] = { '--tw-gradient-from': value + ' var(--tw-gradient-from-position)' };
+          } else if (prop === '--tw-gradient-via') {
+            utilities[cls] = { '--tw-gradient-via': value + ' var(--tw-gradient-via-position)' };
+          } else if (prop === '--tw-gradient-to') {
+            utilities[cls] = { '--tw-gradient-to': value + ' var(--tw-gradient-to-position)' };
+          } else {
+            utilities[cls] = { [prop]: value };
+          }
+        }
+      }
+      addUtilities(utilities, ['responsive', 'dark']);
+    },
   ],
 };
 
