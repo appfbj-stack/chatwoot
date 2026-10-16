@@ -1,11 +1,21 @@
-<img src="./.github/screenshots/header.png#gh-light-mode-only" width="100%" alt="Header light mode"/>
-<img src="./.github/screenshots/header-dark.png#gh-dark-mode-only" width="100%" alt="Header dark mode"/>
+<img src="./public/brand-assets/logo.svg" alt="Kairos CRM" width="400"/>
 
 ___
 
-# Chatwoot
+# Kairos CRM
 
-The modern customer support platform, an open-source alternative to Intercom, Zendesk, Salesforce Service Cloud etc.
+Atendimento ao cliente omnichannel para o ecossistema Kairos. White-label do Chatwoot
+(fork do upstream `chatwoot/chatwoot`) rebrandado para a familia Kairos com paleta
+emerald neon, integracao Wazapi (WhatsApp) e agente IA custom com **MiniMax** substituindo
+o Captain (OpenAI).
+
+**Stack:** Rails 7.2 + Vue 3 + PostgreSQL 16 (com `pgvector`) + Sidekiq + Redis.
+
+**Dominio:** `https://chat.fbautomacao.space`
+
+**Banco:** `chatwoot_db` no `kairos-shared-pg` (VPS Dokploy 187.77.229.227).
+
+**Stack completa:** ver `OPERACAO-SAAS.md` (marca) e `CONTEXTO.md` (estado do rebrand).
 
 <p>
   <img src="https://img.shields.io/circleci/build/github/chatwoot/chatwoot" alt="CircleCI Badge">

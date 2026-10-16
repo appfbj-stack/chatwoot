@@ -1,0 +1,97 @@
+// Kairos CRM — CSS variables de glow emerald neon
+// Adicionar ao entrypoints/dashboard.scss (no topo)
+:root {
+  // Emerald neon glow tokens
+  --kairos-glow-sm: 0 0 12px rgba(16, 185, 129, 0.4);
+  --kairos-glow-md: 0 0 24px rgba(16, 185, 129, 0.5);
+  --kairos-glow-lg: 0 0 40px rgba(16, 185, 129, 0.6);
+  --kairos-glow-xl: 0 0 60px rgba(16, 185, 129, 0.75);
+
+  // Ring tokens
+  --kairos-ring-sm: 0 0 0 2px rgba(16, 185, 129, 0.4);
+  --kairos-ring-md: 0 0 0 3px rgba(16, 185, 129, 0.5);
+  --kairos-ring-lg: 0 0 0 4px rgba(16, 185, 129, 0.6);
+
+  // Hover transitions
+  --kairos-transition-glow: box-shadow 200ms ease, filter 200ms ease;
+}
+
+// Aplicar glow em botões primários
+.button--primary,
+.btn-primary,
+[data-button-type='primary'] {
+  background: rgb(var(--emerald-500));
+  box-shadow: var(--kairos-glow-md);
+  transition: var(--kairos-transition-glow);
+
+  &:hover {
+    box-shadow: var(--kairos-glow-lg);
+    filter: brightness(1.05);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--kairos-glow-md), var(--kairos-ring-md);
+  }
+
+  &:active {
+    filter: brightness(0.95);
+  }
+}
+
+// Focus ring universal emerald
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: var(--kairos-ring-md);
+  border-color: rgb(var(--emerald-500));
+}
+
+// Glow no logo/wordmark em headers
+.kairos-brand,
+.brand-logo {
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.4));
+  transition: filter 200ms ease;
+
+  &:hover {
+    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.6));
+  }
+}
+
+// Badges de notificação
+.kairos-badge,
+.notification-badge {
+  background: rgb(var(--emerald-500));
+  box-shadow: var(--kairos-glow-sm);
+  color: white;
+  font-weight: 600;
+}
+
+// Avatar ativo (online)
+.avatar--active::after,
+.presence-dot--active {
+  background: rgb(var(--emerald-500));
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+}
+
+// Links
+a:not([class]) {
+  color: rgb(var(--emerald-600));
+  text-decoration: none;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: rgb(var(--emerald-500));
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  }
+}
+
+// Toast / alert de sucesso
+.alert--success,
+.toast--success {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid rgb(var(--emerald-500));
+  color: rgb(var(--emerald-700));
+}

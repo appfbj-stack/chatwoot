@@ -1,4 +1,10 @@
-# Chatwoot Development Guidelines
+# Kairos CRM Development Guidelines
+
+> Fork do Chatwoot para o ecossistema Kairos. White-label: `chatwoot` = `Kairos CRM`.
+> Veja `OPERACAO-SAAS.md` para a diretriz de marca completa (paleta, dominio, banco).
+> Veja `CONTEXTO.md` para o estado do rebrand e decisoes tomadas.
+
+
 
 ## Build / Test / Lint
 

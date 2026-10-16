@@ -1,0 +1,65 @@
+# Kairos CRM — docker-compose para produção
+# Path: /opt/kairos-crm/docker-compose.kairos-crm.yml
+# Stack: Rails app + Sidekiq + Redis. Postgres é externo (kairos-shared-pg). Wazapi é externo também.
+
+version: '3.9'
+
+services:
+  kairos-crm-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kairos-crm:latest
+    container_name: kairos-crm-app
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    ports:
+      - "127.0.0.1:3030:3000"  # bind só local; Caddy faz reverse proxy
+    networks:
+      - dokploy-network
+    depends_on:
+      - kairos-crm-sidekiq
+    volumes:
+      - kairos-crm-storage:/app/storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/v1/accounts/-/inboxes/public/1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+
+  kairos-crm-sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kairos-crm:latest
+    container_name: kairos-crm-sidekiq
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
+    networks:
+      - dokploy-network
+    volumes:
+      - kairos-crm-storage:/app/storage
+    depends_on:
+      - kairos-crm-redis
+
+  kairos-crm-redis:
+    image: redis:7-alpine
+    container_name: kairos-crm-redis
+    restart: unless-stopped
+    networks:
+      - dokploy-network
+    volumes:
+      - kairos-crm-redis-data:/data
+    command: ["redis-server", "--maxmemory", "256mb", "--maxmemory-policy", "allkeys-lru"]
+
+networks:
+  dokploy-network:
+    external: true
+
+volumes:
+  kairos-crm-storage:
+  kairos-crm-redis-data:

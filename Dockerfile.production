@@ -1,0 +1,52 @@
+# Kairos CRM — Dockerfile production
+# Path: /opt/kairos-crm/Dockerfile
+FROM ruby:3.3-slim-bookworm
+
+ENV LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    RAILS_ENV=production \
+    NODE_ENV=production \
+    BUNDLE_PATH=/usr/local/bundle
+
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    nodejs \
+    npm \
+    curl \
+    libvips42 \
+    imagemagick \
+    libmagickwand-dev \
+    fonts-liberation \
+    && rm -rf /var/lib/apt/lists/*
+
+# Node 24 (engines do package.json)
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
+    && apt-get install -y nodejs
+
+# pnpm 10
+RUN npm install -g pnpm@10.2.0
+
+WORKDIR /app
+
+# Gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle config set --local without 'development test' \
+    && bundle install --jobs 4 --retry 3
+
+# Node deps
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile=false
+
+# App
+COPY . .
+
+# Build Vite
+RUN pnpm exec vite build
+
+# Precompile assets
+RUN bundle exec rails assets:precompile
+
+EXPOSE 3000
+
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
