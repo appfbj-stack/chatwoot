@@ -1,6 +1,6 @@
 # Kairos CRM — Dockerfile production
 # Path: /opt/kairos-crm/Dockerfile
-FROM ruby:3.3-slim-bookworm
+FROM ruby:3.4-slim-bookworm
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8 \
