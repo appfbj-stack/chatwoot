@@ -37,6 +37,12 @@ const tailwindConfig = {
     './app/javascript/dashboard/routes/dashboard/**/**/*.js',
     './app/views/**/*.erb',
   ],
+  safelist: [
+    {
+      pattern: /^(border|bg|text|outline|fill|stroke|ring|divide|placeholder|caret|accent|decoration)-(n-)?(slate|blue|amber|ruby|iris|teal|gray|violet|red|weak|strong|emphasis|brand|background|card|container|portal|portal-soft|black|button-color|call-widget|call-widget-border|call-widget-text|call-widget-sub-text|dropdown-body|dropdown-item|dropdown-section|input-background|label-border|label-color|alpha-1|alpha-2|alpha-3|alpha-white|alpha-black1|alpha-black2|alpha-black3|alpha-black4|solid-1|solid-2|solid-3|solid-active|solid-amber|solid-blue|solid-iris|surface-1|surface-2|woot-600|woot-700|amber-text|blue-text|blue-border)-?\d*\/\d+$/,
+      variants: ['dark', 'responsive'],
+    },
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -421,19 +427,7 @@ const tailwindConfig = {
       ];
 
       const utilities = {};
-      // Opacities comuns (substituem o /N sufixo)
-      const opacities = [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-      const rgbaFromHex = (hex, alpha) => {
-        // Converte #rrggbb para rgba(r, g, b, a)
-        if (!hex || !hex.startsWith('#') || hex.length !== 7) return null;
-        const r = parseInt(hex.slice(1, 3), 16);
-        const g = parseInt(hex.slice(3, 5), 16);
-        const b = parseInt(hex.slice(5, 7), 16);
-        return `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
-      };
-
       for (const [key, value] of Object.entries(tokens)) {
-        // Versão solida
         for (const { name: prefix, type: prop } of prefixes) {
           const cls = '.' + prefix + 'n-' + key;
           if (prop === '--tw-ring-color') {
@@ -446,25 +440,6 @@ const tailwindConfig = {
             utilities[cls] = { '--tw-gradient-to': value + ' var(--tw-gradient-to-position)' };
           } else {
             utilities[cls] = { [prop]: value };
-          }
-        }
-        // Versão com opacidade /N
-        for (const op of opacities) {
-          const opValue = rgbaFromHex(value, op);
-          if (!opValue) continue;
-          for (const { name: prefix, type: prop } of prefixes) {
-            const cls = '.' + prefix + 'n-' + key + '/' + op;
-            if (prop === '--tw-ring-color') {
-              utilities[cls] = { '--tw-ring-color': opValue };
-            } else if (prop === '--tw-gradient-from') {
-              utilities[cls] = { '--tw-gradient-from': opValue + ' var(--tw-gradient-from-position)' };
-            } else if (prop === '--tw-gradient-via') {
-              utilities[cls] = { '--tw-gradient-via': opValue + ' var(--tw-gradient-via-position)' };
-            } else if (prop === '--tw-gradient-to') {
-              utilities[cls] = { '--tw-gradient-to': opValue + ' var(--tw-gradient-to-position)' };
-            } else {
-              utilities[cls] = { [prop]: opValue };
-            }
           }
         }
       }
