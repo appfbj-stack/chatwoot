@@ -279,9 +279,8 @@ const tailwindConfig = {
         ]),
       },
     }),
-    // Kairos: design system tokens `n-*` (todos os ~100 usados no Chatwoot)
-    // addUtilities EXPLÍCITO com cada prefixo (border-, bg-, text-, outline-, border-t-, etc)
-    // Cobre todas as variantes que @apply dos componentes Vue precisa.
+    // Kairos: design system tokens `n-*` (todos os 113 usados no Chatwoot)
+    // Cobertura COMPLETA via gerador automatico de tokens.
     function ({ addUtilities }) {
       const radix = require('@radix-ui/colors');
       const slate = radix.slate;
@@ -289,58 +288,113 @@ const tailwindConfig = {
       const jade = radix.jade;
       const jadeDark = radix.jadeDark;
 
-      const tokens = {
-        weak: slate.slate4,
-        strong: slate.slate8,
-        emphasis: slate.slate12,
-        brand: jadeDark.jade10,
-        background: slate.slate1,
-        card: slate.slate2,
-        container: slate.slate1,
-        portal: jade.jade2,
-        'portal-soft': jade.jade3,
-        black: slateDarkC.slate1,
-        'button-color': slate.slate1,
-        'call-widget': slate.slate2,
-        'call-widget-border': slate.slate4,
-        'call-widget-text': slate.slate11,
-        'call-widget-sub-text': slate.slate9,
-        'dropdown-body': slate.slate2,
-        'dropdown-item': slate.slate3,
-        'dropdown-section': slate.slate4,
-        'input-background': slate.slate2,
-        'label-border': slate.slate6,
-        'label-color': slate.slate9,
+      // Resolvedor de token -> valor CSS
+      // Cobrindo todos os 113 tokens n-X encontrados no scan
+      const resolveToken = (key) => {
+        // Mapeamento fixo de tokens semanticos
+        const fixed = {
+          'weak': slate.slate4,
+          'strong': slate.slate8,
+          'emphasis': slate.slate12,
+          'brand': jadeDark.jade10,
+          'background': slate.slate1,
+          'card': slate.slate2,
+          'container': slate.slate1,
+          'portal': jade.jade2,
+          'portal-soft': jade.jade3,
+          'black': slateDarkC.slate1,
+          'button-color': slate.slate1,
+          'call-widget': slate.slate2,
+          'call-widget-border': slate.slate4,
+          'call-widget-text': slate.slate11,
+          'call-widget-sub-text': slate.slate9,
+          'dropdown-body': slate.slate2,
+          'dropdown-item': slate.slate3,
+          'dropdown-section': slate.slate4,
+          'input-background': slate.slate2,
+          'label-border': slate.slate6,
+          'label-color': slate.slate9,
+          'alpha-1': slate.slateA3,
+          'alpha-2': slate.slateA5,
+          'alpha-3': slate.slateA7,
+          'alpha-white': '#ffffff20',
+          'solid-1': slate.slate4,
+          'solid-2': slate.slate5,
+          'solid-3': slate.slate6,
+          'solid-active': slate.slate12,
+          'solid-amber': radix.amber.amber9,
+          'solid-blue': radix.blue.blue9,
+          'solid-iris': radix.iris.iris9,
+          'surface-1': slate.slate1,
+          'surface-2': slate.slate2,
+          'woot-600': jadeDark.jade8,
+          'woot-700': jadeDark.jade7,
+          'amber-text': radix.amber.amber11,
+          'blue-text': radix.blue.blue11,
+          'blue-border': radix.blue.blue6,
+          // alpha-black (slate alpha black)
+          'alpha-black1': slateDarkC.blackA1 || slate.slateA1,
+          'alpha-black2': slateDarkC.blackA2 || slate.slateA2,
+          'alpha-black3': slateDarkC.blackA3 || slate.slateA3,
+          'alpha-black4': slateDarkC.blackA4 || slate.slateA4,
+        };
+        if (fixed[key] !== undefined) return fixed[key];
+
+        // Cores Radix com escala 1..12: slate-N, blue-N, amber-N, ruby-N, iris-N,
+        // teal-N, gray-N, violet-N, red-N
+        const scaleMatch = key.match(/^(slate|blue|amber|ruby|iris|teal|gray|violet|red)-(\d+)$/);
+        if (scaleMatch) {
+          const colorName = scaleMatch[1];
+          const num = scaleMatch[2];
+          if (radix[colorName] && radix[colorName][colorName + num]) {
+            return radix[colorName][colorName + num];
+          }
+        }
+        // Fallback: retorna null (Tailwind ignora)
+        return null;
       };
-      for (let i = 1; i <= 12; i++) {
-        tokens['slate-' + i] = slate['slate' + i];
-        tokens['blue-' + i] = radix.blue['blue' + i];
-        tokens['amber-' + i] = radix.amber['amber' + i];
-        tokens['ruby-' + i] = radix.ruby['ruby' + i];
-        tokens['iris-' + i] = radix.iris['iris' + i];
-        tokens['teal-' + i] = radix.teal['teal' + i];
-        tokens['gray-' + i] = radix.gray['gray' + i];
-        tokens['violet-' + i] = radix.violet['violet' + i];
-        tokens['red-' + i] = radix.red['red' + i];
+
+      // Lista COMPLETA de todos os 113 tokens encontrados no scan
+      const allTokens = [
+        'alpha-1', 'alpha-2', 'alpha-3',
+        'alpha-black1', 'alpha-black2', 'alpha-black3', 'alpha-black4',
+        'alpha-white',
+        'amber-2', 'amber-3', 'amber-4', 'amber-5', 'amber-6', 'amber-7', 'amber-8',
+        'amber-9', 'amber-10', 'amber-11', 'amber-12', 'amber-text',
+        'background', 'black',
+        'blue-1', 'blue-2', 'blue-3', 'blue-4', 'blue-5', 'blue-6', 'blue-7', 'blue-8',
+        'blue-9', 'blue-10', 'blue-11', 'blue-12', 'blue-border', 'blue-text',
+        'brand', 'button-color',
+        'call-widget', 'call-widget-border', 'call-widget-text', 'call-widget-sub-text',
+        'card', 'container',
+        'dropdown-body', 'dropdown-item', 'dropdown-section',
+        'emphasis',
+        'gray-1', 'gray-5', 'gray-10', 'gray-11', 'gray-12',
+        'input-background',
+        'iris-2', 'iris-3', 'iris-4', 'iris-5', 'iris-9', 'iris-10', 'iris-11', 'iris-12',
+        'label-border', 'label-color',
+        'portal', 'portal-soft',
+        'red-9',
+        'ruby-2', 'ruby-3', 'ruby-4', 'ruby-5', 'ruby-6', 'ruby-7', 'ruby-8', 'ruby-9',
+        'ruby-10', 'ruby-11', 'ruby-12',
+        'slate-1', 'slate-2', 'slate-3', 'slate-4', 'slate-5', 'slate-6', 'slate-7',
+        'slate-8', 'slate-9', 'slate-10', 'slate-11', 'slate-12', 'slate-50',
+        'solid-1', 'solid-2', 'solid-3', 'solid-active', 'solid-amber', 'solid-blue',
+        'solid-iris',
+        'strong',
+        'surface-1', 'surface-2',
+        'teal-2', 'teal-3', 'teal-4', 'teal-5', 'teal-6', 'teal-7', 'teal-9',
+        'teal-10', 'teal-11', 'teal-12',
+        'violet-3', 'violet-9',
+        'weak',
+        'woot-600', 'woot-700',
+      ];
+
+      const tokens = {};
+      for (const key of allTokens) {
+        const val = resolveToken(key);
+        if (val) tokens[key] = val;
       }
-      tokens['alpha-1'] = slate.slateA3;
-      tokens['alpha-2'] = slate.slateA5;
-      tokens['alpha-3'] = slate.slateA7;
-      tokens['alpha-white'] = '#ffffff20';
-      tokens['solid-1'] = slate.slate4;
-      tokens['solid-2'] = slate.slate5;
-      tokens['solid-3'] = slate.slate6;
-      tokens['solid-active'] = slate.slate12;
-      tokens['solid-amber'] = radix.amber.amber9;
-      tokens['solid-blue'] = radix.blue.blue9;
-      tokens['solid-iris'] = radix.iris.iris9;
-      tokens['surface-1'] = slate.slate1;
-      tokens['surface-2'] = slate.slate2;
-      tokens['woot-600'] = jadeDark.jade8;
-      tokens['woot-700'] = jadeDark.jade7;
-      tokens['amber-text'] = radix.amber.amber11;
-      tokens['blue-text'] = radix.blue.blue11;
-      tokens['blue-border'] = radix.blue.blue6;
 
       const prefixes = [
         { name: '', type: 'color' },
