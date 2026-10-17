@@ -1,8 +1,9 @@
-// Kairos CRM — paleta (substitui woot azul por emerald neon)
-// Path no clone: theme/colors.js
+// Kairos CRM — paleta (jade Radix como cor primaria, alias emerald/woot para compat)
+// Path: theme/colors.js
+// Radix v3 NAO tem 'emerald' — usamos 'jade' (mais proximo do verde emerald #10b981)
 const {
-  emerald,
-  emeraldDark,
+  jade,
+  jadeDark,
   green,
   greenDark,
   yellow,
@@ -16,35 +17,50 @@ const {
 } = require('@radix-ui/colors');
 
 export const colors = {
-  // Cor primária: emerald (era 'woot' azul)
-  emerald: {
-    25: emerald.emerald2,
-    50: emerald.emerald3,
-    75: emerald.emerald4,
-    100: emerald.emerald5,
-    200: emerald.emerald7,
-    300: emerald.emerald8,
-    400: emeraldDark.emerald11,
-    500: emeraldDark.emerald10,
-    600: emeraldDark.emerald9,
-    700: emeraldDark.emerald8,
-    800: emeraldDark.emerald6,
-    900: emeraldDark.emerald2,
+  // Cor primaria: jade (mais proximo do emerald no Radix v3)
+  jade: {
+    25: jade.jade2,
+    50: jade.jade3,
+    75: jade.jade4,
+    100: jade.jade5,
+    200: jade.jade7,
+    300: jade.jade8,
+    400: jadeDark.jade11,
+    500: jadeDark.jade10,
+    600: jadeDark.jade9,
+    700: jadeDark.jade8,
+    800: jadeDark.jade6,
+    900: jadeDark.jade2,
   },
-  // Alias para compatibilidade com código legado que usa 'woot'
+  // Alias 'emerald' para semantica do Kairos (CSS classes emerald-* continuam funcionando)
+  emerald: {
+    25: jade.jade2,
+    50: jade.jade3,
+    75: jade.jade4,
+    100: jade.jade5,
+    200: jade.jade7,
+    300: jade.jade8,
+    400: jadeDark.jade11,
+    500: jadeDark.jade10,
+    600: jadeDark.jade9,
+    700: jadeDark.jade8,
+    800: jadeDark.jade6,
+    900: jadeDark.jade2,
+  },
+  // Alias 'woot' para compatibilidade com codigo legado
   woot: {
-    25: emerald.emerald2,
-    50: emerald.emerald3,
-    75: emerald.emerald4,
-    100: emerald.emerald5,
-    200: emerald.emerald7,
-    300: emerald.emerald8,
-    400: emeraldDark.emerald11,
-    500: emeraldDark.emerald10,
-    600: emeraldDark.emerald9,
-    700: emeraldDark.emerald8,
-    800: emeraldDark.emerald6,
-    900: emeraldDark.emerald2,
+    25: jade.jade2,
+    50: jade.jade3,
+    75: jade.jade4,
+    100: jade.jade5,
+    200: jade.jade7,
+    300: jade.jade8,
+    400: jadeDark.jade11,
+    500: jadeDark.jade10,
+    600: jadeDark.jade9,
+    700: jadeDark.jade8,
+    800: jadeDark.jade6,
+    900: jadeDark.jade2,
   },
   green: {
     50: greenDark.green12,
@@ -95,12 +111,5 @@ export const colors = {
     700: slateDark.slate8,
     800: slateDark.slate7,
     900: slateDark.slate2,
-  },
-  // Cores custom Kairos (CSS vars consumidas pelo dashboard.scss)
-  kairos: {
-    glowSm: 'rgba(16, 185, 129, 0.4)',
-    glowMd: 'rgba(16, 185, 129, 0.5)',
-    glowLg: 'rgba(16, 185, 129, 0.6)',
-    glowXl: 'rgba(16, 185, 129, 0.75)',
   },
 };
