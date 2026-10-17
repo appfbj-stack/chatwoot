@@ -292,6 +292,7 @@ const tailwindConfig = {
       // Cobrindo todos os 113 tokens n-X encontrados no scan
       const resolveToken = (key) => {
         // Mapeamento fixo de tokens semanticos
+        // NOTA: Radix v3 nao tem 'slateA*' ou 'blackA*', entao usamos rgba() fixo
         const fixed = {
           'weak': slate.slate4,
           'strong': slate.slate8,
@@ -314,10 +315,15 @@ const tailwindConfig = {
           'input-background': slate.slate2,
           'label-border': slate.slate6,
           'label-color': slate.slate9,
-          'alpha-1': slate.slateA3,
-          'alpha-2': slate.slateA5,
-          'alpha-3': slate.slateA7,
-          'alpha-white': '#ffffff20',
+          // alpha (slate alpha como rgba) — Radix v3 nao exporta
+          'alpha-1': 'rgba(0, 0, 0, 0.05)',
+          'alpha-2': 'rgba(0, 0, 0, 0.1)',
+          'alpha-3': 'rgba(0, 0, 0, 0.2)',
+          'alpha-white': 'rgba(255, 255, 255, 0.2)',
+          'alpha-black1': 'rgba(0, 0, 0, 0.1)',
+          'alpha-black2': 'rgba(0, 0, 0, 0.2)',
+          'alpha-black3': 'rgba(0, 0, 0, 0.3)',
+          'alpha-black4': 'rgba(0, 0, 0, 0.5)',
           'solid-1': slate.slate4,
           'solid-2': slate.slate5,
           'solid-3': slate.slate6,
@@ -332,11 +338,6 @@ const tailwindConfig = {
           'amber-text': radix.amber.amber11,
           'blue-text': radix.blue.blue11,
           'blue-border': radix.blue.blue6,
-          // alpha-black (slate alpha black)
-          'alpha-black1': slateDarkC.blackA1 || slate.slateA1,
-          'alpha-black2': slateDarkC.blackA2 || slate.slateA2,
-          'alpha-black3': slateDarkC.blackA3 || slate.slateA3,
-          'alpha-black4': slateDarkC.blackA4 || slate.slateA4,
         };
         if (fixed[key] !== undefined) return fixed[key];
 
