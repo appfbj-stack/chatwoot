@@ -37,12 +37,37 @@ const tailwindConfig = {
     './app/javascript/dashboard/routes/dashboard/**/**/*.js',
     './app/views/**/*.erb',
   ],
-  safelist: [
-    {
-      pattern: /^(border|bg|text|outline|fill|stroke|ring|divide|placeholder|caret|accent|decoration)-(n-)?(slate|blue|amber|ruby|iris|teal|gray|violet|red|weak|strong|emphasis|brand|background|card|container|portal|portal-soft|black|button-color|call-widget|call-widget-border|call-widget-text|call-widget-sub-text|dropdown-body|dropdown-item|dropdown-section|input-background|label-border|label-color|alpha-1|alpha-2|alpha-3|alpha-white|alpha-black1|alpha-black2|alpha-black3|alpha-black4|solid-1|solid-2|solid-3|solid-active|solid-amber|solid-blue|solid-iris|surface-1|surface-2|woot-600|woot-700|amber-text|blue-text|blue-border)-?\d*\/\d+$/,
-      variants: ['dark', 'responsive'],
-    },
-  ],
+  safelist: (() => {
+    // Gerar lista literal de classes n-X/N pra forcar Tailwind a inclui-las
+    const tokenList = [
+      'weak', 'strong', 'emphasis', 'brand', 'background', 'card', 'container',
+      'portal', 'portal-soft', 'black', 'button-color',
+      'call-widget', 'call-widget-border', 'call-widget-text', 'call-widget-sub-text',
+      'dropdown-body', 'dropdown-item', 'dropdown-section',
+      'input-background', 'label-border', 'label-color',
+      'alpha-1', 'alpha-2', 'alpha-3', 'alpha-white',
+      'alpha-black1', 'alpha-black2', 'alpha-black3', 'alpha-black4',
+      'solid-1', 'solid-2', 'solid-3', 'solid-active',
+      'solid-amber', 'solid-blue', 'solid-iris',
+      'surface-1', 'surface-2', 'woot-600', 'woot-700',
+      'amber-text', 'blue-text', 'blue-border',
+    ];
+    for (let i = 1; i <= 12; i++) {
+      tokenList.push('slate-' + i, 'blue-' + i, 'amber-' + i, 'ruby-' + i,
+        'iris-' + i, 'teal-' + i, 'gray-' + i, 'violet-' + i, 'red-' + i);
+    }
+    const prefixes = ['border', 'bg', 'text', 'outline', 'fill', 'stroke', 'ring', 'divide', 'placeholder', 'caret', 'accent', 'decoration'];
+    const opacities = [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+    const out = [];
+    for (const p of prefixes) {
+      for (const t of tokenList) {
+        for (const o of opacities) {
+          out.push(p + '-n-' + t + '/' + o);
+        }
+      }
+    }
+    return out;
+  })(),
   theme: {
     extend: {
       fontFamily: {
