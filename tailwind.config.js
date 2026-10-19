@@ -1,4 +1,4 @@
-const { slate, slateDark, slateDarkC, jade, jadeDark } = require('@radix-ui/colors');
+const { slate, slateDark, jade, jadeDark } = require('@radix-ui/colors');
 import { colors } from './theme/colors';
 import { icons } from './theme/icons';
 const defaultTheme = require('tailwindcss/defaultTheme');
@@ -260,18 +260,18 @@ const tailwindConfig = {
         container: slate.slate1,
         portal: jade.jade2,
         'portal-soft': jade.jade3,
-        black: slateDarkC.slate1,
+        black: slateDark.slate1,
         'button-color': slate.slate1,
         'call-widget': slate.slate2,
         'call-widget-border': slate.slate4,
-        'call-widget-text': slateDarkC.slate11,
-        'call-widget-sub-text': slateDarkC.slate9,
+        'call-widget-text': slateDark.slate11,
+        'call-widget-sub-text': slateDark.slate9,
         'dropdown-body': slate.slate2,
         'dropdown-item': slate.slate3,
         'dropdown-section': slate.slate4,
         'input-background': slate.slate2,
         'label-border': slate.slate6,
-        'label-color': slateDarkC.slate9,
+        'label-color': slateDark.slate9,
         'alpha-1': 'rgba(0, 0, 0, 0.05)',
         'alpha-2': 'rgba(0, 0, 0, 0.1)',
         'alpha-3': 'rgba(0, 0, 0, 0.2)',
@@ -435,7 +435,7 @@ const tailwindConfig = {
     function ({ addUtilities }) {
       const radix = require('@radix-ui/colors');
       const slate = radix.slate;
-      const slateDarkC = radix.slateDark;
+      const slateDarkC = radix.slateDark; // alias kept for back-compat in resolveToken
       const jade = radix.jade;
       const jadeDark = radix.jadeDark;
 
@@ -454,7 +454,7 @@ const tailwindConfig = {
           'container': slate.slate1,
           'portal': jade.jade2,
           'portal-soft': jade.jade3,
-          'black': slateDarkC.slate1,
+          'black': slateDark.slate1,
           'button-color': slate.slate1,
           'call-widget': slate.slate2,
           'call-widget-border': slate.slate4,
