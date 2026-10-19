@@ -1,4 +1,4 @@
-const { slateDark } = require('@radix-ui/colors');
+const { slate, slateDark, slateDarkC, jade, jadeDark } = require('@radix-ui/colors');
 import { colors } from './theme/colors';
 import { icons } from './theme/icons';
 const defaultTheme = require('tailwindcss/defaultTheme');
