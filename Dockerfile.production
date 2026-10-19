@@ -41,7 +41,8 @@ RUN pnpm install --frozen-lockfile=false
 # App
 COPY . .
 
-# Build Vite
+# Build Vite (heap 6GB para segurar o safelist gigante de tokens n-*)
+ENV NODE_OPTIONS="--max-old-space-size=6144"
 RUN pnpm exec vite build
 
 # Precompile assets
