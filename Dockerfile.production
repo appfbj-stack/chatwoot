@@ -47,6 +47,8 @@ ENV NODE_OPTIONS="--max-old-space-size=6144"
 RUN pnpm exec vite build
 
 # Precompile assets
+ARG SECRET_KEY_BASE
+ENV RAILS_ENV=production SECRET_KEY_BASE=${SECRET_KEY_BASE}
 RUN bundle exec rails assets:precompile
 
 EXPOSE 3000
