@@ -51,6 +51,10 @@ ARG SECRET_KEY_BASE
 ENV RAILS_ENV=production SECRET_KEY_BASE=${SECRET_KEY_BASE}
 RUN bundle exec rails assets:precompile
 
+# Rails runtime dirs (puma precisa de tmp/pids, tmp/cache, tmp/sockets)
+RUN mkdir -p /app/tmp/pids /app/tmp/cache/bootsnap/compile-cache-iseq /app/tmp/cache/bootsnap/compile-cache-yjit /app/tmp/sockets /app/tmp/storage /app/log && \
+    chmod -R 777 /app/tmp /app/log
+
 EXPOSE 3000
 
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
