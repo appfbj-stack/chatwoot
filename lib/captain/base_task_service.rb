@@ -61,10 +61,14 @@ class Captain::BaseTaskService
   end
 
   def resolved_model(model:, feature:)
-    return model if feature.blank?
+    # Kairós: quando o chamador não passa model, cai no default do fork
+    # (MiniMax-M3) em vez de seguir com nil — que o ruby_llm rejeita com
+    # "Unknown model: nil".
+    base = model.presence || Llm::Config::DEFAULT_MODEL
+    return base if feature.blank?
 
     route = Llm::FeatureRouter.resolve(feature: feature, account: account)
-    return model if model.present? && route[:source] == :default
+    return base if base.present? && route[:source] == :default
 
     route[:model]
   end
