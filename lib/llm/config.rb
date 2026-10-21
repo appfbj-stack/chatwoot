@@ -1,7 +1,13 @@
 require 'ruby_llm'
+require 'kairos_agent'
+require 'llm_constants'
 
 module Llm::Config
-  DEFAULT_MODEL = 'gpt-4.1-mini'.freeze
+  # Kairós IA: MiniMax-M3 é o modelo padrão do fork.
+  # String literal (e não LlmConstants::DEFAULT_MODEL) porque este arquivo é
+  # carregado pelo ruby_llm antes do eager_load do lib/ — referenciar a
+  # constante aqui causaria NameError no boot.
+  DEFAULT_MODEL = 'MiniMax-M3'
 
   class << self
     def initialized?
@@ -42,11 +48,17 @@ module Llm::Config
     end
 
     def system_api_key
-      InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_API_KEY')&.value
+      # Kairós: env var do MiniMax tem precedência sobre o painel.
+      ENV[KairosAgent::MINIMAX_KEY_ENV].presence ||
+        ENV['MINIMAX_API_KEY'].presence ||
+        InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_API_KEY')&.value
     end
 
     def openai_endpoint
-      InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_ENDPOINT')&.value
+      # Kairós: default é o endpoint do MiniMax (OpenAI-compatible).
+      InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_ENDPOINT')&.value.presence ||
+        ENV['MINIMAX_API_ENDPOINT'].presence ||
+        LlmConstants::MINIMAX_API_ENDPOINT
     end
   end
 end
