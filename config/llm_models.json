@@ -61747,7 +61747,7 @@
   {
     "id": "MiniMax-M3",
     "name": "Kairós M3",
-    "provider": "minimax",
+    "provider": "openai",
     "family": "minimax-m",
     "created_at": "2026-05-01 00:00:00 UTC",
     "context_window": 204800,
@@ -61780,7 +61780,7 @@
   {
     "id": "MiniMax-M2.5",
     "name": "Kairós M2.5",
-    "provider": "minimax",
+    "provider": "openai",
     "family": "minimax-m",
     "created_at": "2026-02-01 00:00:00 UTC",
     "context_window": 204800,

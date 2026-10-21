@@ -12,8 +12,9 @@ module LlmConstants
   MINIMAX_API_KEY_ENV = 'MINIMAX_API_KEY'
 
   PROVIDER_PREFIXES = {
-    'minimax' => %w[MiniMax- minimax-],
-    'openai' => %w[gpt- o1 o3 o4 text-embedding- whisper- tts-],
+    # Kairós IA usa o provider 'openai' do ruby_llm (mesmo protocolo), então
+    # MiniMax entra em 'openai' pra não virar provider desconhecido.
+    'openai' => %w[MiniMax- minimax- gpt- o1 o3 o4 text-embedding- whisper- tts-],
     'anthropic' => %w[claude-],
     'google' => %w[gemini-],
     'mistral' => %w[mistral- codestral-],

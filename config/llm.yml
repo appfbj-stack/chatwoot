@@ -1,6 +1,9 @@
 providers:
-  minimax:
+  # Kairós IA (MiniMax) fala o protocolo do OpenAI, então registra sob o
+  # mesmo provider — o ruby_llm 2.0 não tem um provider 'minimax' nativo.
+  kairos:
     display_name: 'Kairós IA (MiniMax)'
+    api_base: 'https://api.minimax.io/v1'
   openai:
     display_name: 'OpenAI'
   anthropic:
@@ -10,11 +13,11 @@ providers:
 
 models:
   MiniMax-M3:
-    provider: minimax
+    provider: kairos
     display_name: 'Kairós M3 (principal)'
     credit_multiplier: 1
   MiniMax-M2.5:
-    provider: minimax
+    provider: kairos
     display_name: 'Kairós M2.5 (econômico)'
     credit_multiplier: 1
   gpt-4.1:
