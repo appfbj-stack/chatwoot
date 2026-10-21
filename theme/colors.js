@@ -11,22 +11,25 @@ const {
   redDark,
   violet,
   violetDark,
+  jade,
+  jadeDark,
 } = require('@radix-ui/colors');
 
 export const colors = {
+  // Kairos CRM — verde néon (emerald). Radix v3 não tem 'emerald', usa 'jade'.
   woot: {
-    25: blue.blue2,
-    50: blue.blue3,
-    75: blue.blue4,
-    100: blue.blue5,
-    200: blue.blue7,
-    300: blue.blue8,
-    400: blueDark.blue11,
-    500: blueDark.blue10,
-    600: blueDark.blue9,
-    700: blueDark.blue8,
-    800: blueDark.blue6,
-    900: blueDark.blue2,
+    25: jade.jade2,
+    50: jade.jade3,
+    75: jade.jade4,
+    100: jade.jade5,
+    200: jade.jade7,
+    300: jade.jade8,
+    400: jadeDark.jade11,
+    500: jadeDark.jade10,
+    600: jadeDark.jade9,
+    700: jadeDark.jade8,
+    800: jadeDark.jade6,
+    900: jadeDark.jade2,
   },
   green: {
     50: greenDark.green12,
@@ -226,7 +229,8 @@ export const colors = {
     },
 
     black: '#000000',
-    brand: '#2781F6',
+    // Kairos CRM: verde néon emerald-500 (#10E070)
+    brand: '#10E070',
     portal: 'var(--dynamic-portal-color)',
     'portal-soft': 'var(--dynamic-portal-color-soft)',
     'portal-faint': 'var(--dynamic-portal-color-faint)',
