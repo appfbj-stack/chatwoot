@@ -32,7 +32,11 @@ class Captain::BaseTaskService
   end
 
   def api_base
-    endpoint = InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_ENDPOINT')&.value.presence || 'https://api.openai.com/'
+    # Kairós: MiniMax é OpenAI-compatible, então reaproveitamos o mesmo caminho
+    # /v1/chat/completions. Ordem: painel → env var → constante do white-label.
+    endpoint = InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_ENDPOINT')&.value.presence ||
+               ENV['MINIMAX_API_ENDPOINT'].presence ||
+               LlmConstants::MINIMAX_API_ENDPOINT
     endpoint = endpoint.chomp('/')
     "#{endpoint}/v1"
   end
@@ -108,7 +112,7 @@ class Captain::BaseTaskService
 
   def build_ruby_llm_response(response, messages, schema: nil)
     {
-      message: schema ? response.parsed : response.content,
+      message: sanitize_llm_output(schema ? response.parsed : response.content),
       usage: {
         'prompt_tokens' => response.tokens.input,
         'completion_tokens' => response.tokens.output,
@@ -117,6 +121,17 @@ class Captain::BaseTaskService
       }.compact,
       request_messages: messages
     }
+  end
+
+  # Kairos CRM: o MiniMax emite raciocínio no campo `content` (bloco
+  # <think>...</think>). Sem este filtro o cliente final lê a cadeia de
+  # raciocínio do modelo. Só strings passam pelo strip — respostas
+  # estruturadas (schema) já vêm limpas do parser.
+  def sanitize_llm_output(content)
+    return content unless content.is_a?(String)
+    return content unless content.include?(KairosAgent::THINK_OPEN)
+
+    KairosAgent.strip_reasoning(content)
   end
 
   def build_instrumentation_params(model, messages, feature: nil)
@@ -205,7 +220,11 @@ class Captain::BaseTaskService
   end
 
   def system_api_key
-    @system_api_key ||= InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_API_KEY')&.value
+    # Kairós: aceita a chave do MiniMax por env var antes do painel, para o
+    # fork funcionar sem configuração manual pós-deploy.
+    @system_api_key ||= ENV[KairosAgent::MINIMAX_KEY_ENV].presence ||
+                        ENV['MINIMAX_API_KEY'].presence ||
+                        InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_API_KEY')&.value
   end
 
   def exception_tracking_account
