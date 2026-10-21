@@ -1,4 +1,6 @@
 providers:
+  minimax:
+    display_name: 'Kairós IA (MiniMax)'
   openai:
     display_name: 'OpenAI'
   anthropic:
@@ -7,6 +9,14 @@ providers:
     display_name: 'Gemini'
 
 models:
+  MiniMax-M3:
+    provider: minimax
+    display_name: 'Kairós M3 (principal)'
+    credit_multiplier: 1
+  MiniMax-M2.5:
+    provider: minimax
+    display_name: 'Kairós M2.5 (econômico)'
+    credit_multiplier: 1
   gpt-4.1:
     provider: openai
     display_name: 'GPT-4.1'

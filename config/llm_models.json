@@ -5087,8 +5087,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 2.0
+          "input_per_million": 2,
+          "output_per_million": 2
         }
       }
     },
@@ -5387,8 +5387,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 30.0
+          "input_per_million": 10,
+          "output_per_million": 30
         }
       }
     },
@@ -5606,8 +5606,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 30.0
+          "input_per_million": 10,
+          "output_per_million": 30
         }
       }
     },
@@ -5636,8 +5636,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 30.0
+          "input_per_million": 10,
+          "output_per_million": 30
         }
       }
     },
@@ -5694,8 +5694,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0,
+          "input_per_million": 2,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -5726,8 +5726,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0,
+          "input_per_million": 2,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -5758,8 +5758,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0,
+          "input_per_million": 2,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -5917,7 +5917,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -5948,7 +5948,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -5979,7 +5979,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6010,7 +6010,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6037,7 +6037,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6064,7 +6064,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6091,7 +6091,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6118,7 +6118,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6149,7 +6149,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6292,7 +6292,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 5.0
+          "output_per_million": 5
         }
       }
     },
@@ -6319,7 +6319,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 5.0
+          "output_per_million": 5
         }
       }
     },
@@ -6346,7 +6346,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 5.0
+          "output_per_million": 5
         }
       }
     },
@@ -6373,7 +6373,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.6,
-          "output_per_million": 12.0
+          "output_per_million": 12
         }
       }
     },
@@ -6400,7 +6400,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.6,
-          "output_per_million": 12.0
+          "output_per_million": 12
         }
       }
     },
@@ -6427,7 +6427,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.6,
-          "output_per_million": 12.0
+          "output_per_million": 12
         }
       }
     },
@@ -6453,8 +6453,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 20.0
+          "input_per_million": 5,
+          "output_per_million": 20
         }
       }
     },
@@ -6480,8 +6480,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 20.0
+          "input_per_million": 5,
+          "output_per_million": 20
         }
       }
     },
@@ -6507,8 +6507,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 20.0
+          "input_per_million": 5,
+          "output_per_million": 20
         }
       }
     },
@@ -6535,7 +6535,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6562,7 +6562,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6589,7 +6589,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6616,7 +6616,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -6648,7 +6648,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -6681,7 +6681,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -6714,7 +6714,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -6747,7 +6747,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -6780,7 +6780,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -6813,7 +6813,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.025
         }
       }
@@ -6846,7 +6846,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.025
         }
       }
@@ -6879,7 +6879,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.025
         }
       }
@@ -6945,7 +6945,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -6978,7 +6978,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7011,7 +7011,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7044,7 +7044,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7077,7 +7077,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7110,7 +7110,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7143,7 +7143,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.025
         }
       }
@@ -7176,7 +7176,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7209,7 +7209,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7242,7 +7242,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7275,7 +7275,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7308,7 +7308,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7341,7 +7341,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7374,7 +7374,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7407,7 +7407,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7440,7 +7440,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.025
         }
       }
@@ -7506,7 +7506,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7539,7 +7539,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -7676,14 +7676,14 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
+          "input_per_million": 5,
           "cache_read_input_per_million": 1.25
         }
       },
       "images": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 40.0,
+          "input_per_million": 10,
+          "output_per_million": 40,
           "cache_read_input_per_million": 2.5
         }
       }
@@ -7712,14 +7712,14 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
+          "input_per_million": 5,
           "cache_read_input_per_million": 1.25
         }
       },
       "images": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 40.0,
+          "input_per_million": 10,
+          "output_per_million": 40,
           "cache_read_input_per_million": 2.5
         }
       }
@@ -7748,14 +7748,14 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
+          "input_per_million": 2,
           "cache_read_input_per_million": 0.2
         }
       },
       "images": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 8.0,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.25
         }
       }
@@ -7784,14 +7784,14 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
+          "input_per_million": 2,
           "cache_read_input_per_million": 0.2
         }
       },
       "images": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 8.0,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.25
         }
       }
@@ -7820,15 +7820,15 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
+          "input_per_million": 5,
           "cache_read_input_per_million": 1.25
         }
       },
       "images": {
         "standard": {
-          "input_per_million": 8.0,
-          "output_per_million": 32.0,
-          "cache_read_input_per_million": 2.0
+          "input_per_million": 8,
+          "output_per_million": 32,
+          "cache_read_input_per_million": 2
         }
       }
     },
@@ -7856,15 +7856,15 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
+          "input_per_million": 5,
           "cache_read_input_per_million": 1.25
         }
       },
       "images": {
         "standard": {
-          "input_per_million": 8.0,
-          "output_per_million": 32.0,
-          "cache_read_input_per_million": 2.0
+          "input_per_million": 8,
+          "output_per_million": 32,
+          "cache_read_input_per_million": 2
         }
       }
     },
@@ -8597,8 +8597,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 15.0,
-          "output_per_million": 60.0
+          "input_per_million": 15,
+          "output_per_million": 60
         }
       }
     },
@@ -8658,8 +8658,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 150.0,
-          "output_per_million": 600.0
+          "input_per_million": 150,
+          "output_per_million": 600
         }
       }
     },
@@ -8690,8 +8690,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 150.0,
-          "output_per_million": 600.0
+          "input_per_million": 150,
+          "output_per_million": 600
         }
       }
     },
@@ -24647,8 +24647,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 2.0
+          "input_per_million": 2,
+          "output_per_million": 2
         }
       }
     },
@@ -24986,8 +24986,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 30.0
+          "input_per_million": 10,
+          "output_per_million": 30
         }
       }
     },
@@ -25071,8 +25071,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0,
+          "input_per_million": 2,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -25481,7 +25481,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -25508,7 +25508,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -25535,7 +25535,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -25809,7 +25809,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 5.0
+          "output_per_million": 5
         }
       }
     },
@@ -25836,7 +25836,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 5.0
+          "output_per_million": 5
         }
       }
     },
@@ -25863,7 +25863,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 5.0
+          "output_per_million": 5
         }
       }
     },
@@ -25890,7 +25890,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.6,
-          "output_per_million": 12.0
+          "output_per_million": 12
         }
       }
     },
@@ -25917,7 +25917,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.6,
-          "output_per_million": 12.0
+          "output_per_million": 12
         }
       }
     },
@@ -25944,7 +25944,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.6,
-          "output_per_million": 12.0
+          "output_per_million": 12
         }
       }
     },
@@ -25970,8 +25970,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 20.0
+          "input_per_million": 5,
+          "output_per_million": 20
         }
       }
     },
@@ -25997,8 +25997,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 20.0
+          "input_per_million": 5,
+          "output_per_million": 20
         }
       }
     },
@@ -26024,8 +26024,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 20.0
+          "input_per_million": 5,
+          "output_per_million": 20
         }
       }
     },
@@ -26054,7 +26054,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -26083,7 +26083,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -26110,7 +26110,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -26137,7 +26137,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -26224,7 +26224,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -26431,7 +26431,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.025
         }
       }
@@ -26605,7 +26605,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -26638,7 +26638,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -26671,7 +26671,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -26770,7 +26770,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -27089,7 +27089,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -27285,7 +27285,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -27543,7 +27543,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -27631,7 +27631,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.025
         }
       }
@@ -27809,7 +27809,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -27903,7 +27903,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -27994,7 +27994,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125
         }
       }
@@ -28391,14 +28391,14 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
+          "input_per_million": 5,
           "cache_read_input_per_million": 1.25
         }
       },
       "images": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 40.0,
+          "input_per_million": 10,
+          "output_per_million": 40,
           "cache_read_input_per_million": 2.5
         }
       }
@@ -28444,14 +28444,14 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
+          "input_per_million": 2,
           "cache_read_input_per_million": 0.2
         }
       },
       "images": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 8.0,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.25
         }
       }
@@ -28497,15 +28497,15 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
+          "input_per_million": 5,
           "cache_read_input_per_million": 1.25
         }
       },
       "images": {
         "standard": {
-          "input_per_million": 8.0,
-          "output_per_million": 32.0,
-          "cache_read_input_per_million": 2.0
+          "input_per_million": 8,
+          "output_per_million": 32,
+          "cache_read_input_per_million": 2
         }
       }
     },
@@ -28818,8 +28818,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 15.0,
-          "output_per_million": 60.0
+          "input_per_million": 15,
+          "output_per_million": 60
         }
       }
     },
@@ -28999,8 +28999,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 150.0,
-          "output_per_million": 600.0
+          "input_per_million": 150,
+          "output_per_million": 600
         }
       }
     },
@@ -29754,8 +29754,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 15.0,
-          "output_per_million": 15.0
+          "input_per_million": 15,
+          "output_per_million": 15
         }
       }
     },
@@ -29781,8 +29781,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 15.0,
-          "output_per_million": 15.0
+          "input_per_million": 15,
+          "output_per_million": 15
         }
       }
     },
@@ -29808,8 +29808,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 30.0,
-          "output_per_million": 30.0
+          "input_per_million": 30,
+          "output_per_million": 30
         }
       }
     },
@@ -29835,8 +29835,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 30.0,
-          "output_per_million": 30.0
+          "input_per_million": 30,
+          "output_per_million": 30
         }
       }
     },
@@ -29897,8 +29897,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0
+          "input_per_million": 2,
+          "output_per_million": 8
         }
       }
     },
@@ -29955,8 +29955,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 4.0,
-          "output_per_million": 8.0
+          "input_per_million": 4,
+          "output_per_million": 8
         }
       }
     },
@@ -30823,8 +30823,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 3.0,
-          "output_per_million": 5.0
+          "input_per_million": 3,
+          "output_per_million": 5
         }
       }
     },
@@ -31121,8 +31121,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 3.0,
-          "output_per_million": 15.0,
+          "input_per_million": 3,
+          "output_per_million": 15,
           "cache_read_input_per_million": 0.3
         }
       }
@@ -31634,9 +31634,9 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 30.0,
-          "output_per_million": 150.0,
-          "cache_read_input_per_million": 3.0
+          "input_per_million": 30,
+          "output_per_million": 150,
+          "cache_read_input_per_million": 3
         }
       }
     },
@@ -33161,7 +33161,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0
+          "output_per_million": 2
         }
       }
     },
@@ -33297,7 +33297,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.25,
-          "output_per_million": 2.0
+          "output_per_million": 2
         }
       }
     },
@@ -33604,7 +33604,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -33732,7 +33732,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -35757,9 +35757,9 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.25,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 0.125,
-          "reasoning_output_per_million": 10.0
+          "reasoning_output_per_million": 10
         }
       }
     },
@@ -36066,10 +36066,10 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 12.0,
+          "input_per_million": 2,
+          "output_per_million": 12,
           "cache_read_input_per_million": 0.19999999999999998,
-          "reasoning_output_per_million": 12.0
+          "reasoning_output_per_million": 12
         }
       }
     },
@@ -38100,7 +38100,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -38155,7 +38155,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -38485,7 +38485,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.75,
-          "output_per_million": 1.0
+          "output_per_million": 1
         }
       }
     },
@@ -40493,7 +40493,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.39999999999999997,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.04
         }
       }
@@ -41031,8 +41031,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 6.0,
+          "input_per_million": 2,
+          "output_per_million": 6,
           "cache_read_input_per_million": 0.19999999999999998
         }
       }
@@ -41096,8 +41096,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 6.0,
+          "input_per_million": 2,
+          "output_per_million": 6,
           "cache_read_input_per_million": 0.19999999999999998
         }
       }
@@ -41161,8 +41161,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 6.0,
+          "input_per_million": 2,
+          "output_per_million": 6,
           "cache_read_input_per_million": 0.19999999999999998
         }
       }
@@ -41979,8 +41979,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 6.0,
+          "input_per_million": 2,
+          "output_per_million": 6,
           "cache_read_input_per_million": 0.19999999999999998
         }
       }
@@ -42114,8 +42114,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 6.0,
+          "input_per_million": 2,
+          "output_per_million": 6,
           "cache_read_input_per_million": 0.19999999999999998
         }
       }
@@ -42978,8 +42978,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 1.0,
-          "output_per_million": 1.0
+          "input_per_million": 1,
+          "output_per_million": 1
         }
       }
     },
@@ -44218,8 +44218,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 1.0,
-          "output_per_million": 2.0
+          "input_per_million": 1,
+          "output_per_million": 2
         }
       }
     },
@@ -44285,8 +44285,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 3.0,
-          "output_per_million": 4.0
+          "input_per_million": 3,
+          "output_per_million": 4
         }
       }
     },
@@ -44353,7 +44353,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.5,
-          "output_per_million": 2.0
+          "output_per_million": 2
         }
       }
     },
@@ -44417,8 +44417,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 30.0,
-          "output_per_million": 60.0
+          "input_per_million": 30,
+          "output_per_million": 60
         }
       }
     },
@@ -44485,8 +44485,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 30.0,
-          "output_per_million": 60.0
+          "input_per_million": 30,
+          "output_per_million": 60
         }
       }
     },
@@ -44552,8 +44552,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 30.0
+          "input_per_million": 10,
+          "output_per_million": 30
         }
       }
     },
@@ -44620,8 +44620,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 30.0
+          "input_per_million": 10,
+          "output_per_million": 30
         }
       }
     },
@@ -44688,8 +44688,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 30.0
+          "input_per_million": 10,
+          "output_per_million": 30
         }
       }
     },
@@ -44991,7 +44991,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -45063,8 +45063,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 15.0
+          "input_per_million": 5,
+          "output_per_million": 15
         }
       }
     },
@@ -45137,7 +45137,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 1.25
         }
       }
@@ -45211,7 +45211,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0,
+          "output_per_million": 10,
           "cache_read_input_per_million": 1.25
         }
       }
@@ -45284,7 +45284,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -45571,7 +45571,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -45962,7 +45962,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 2.0,
+          "output_per_million": 2,
           "cache_read_input_per_million": 0.25
         }
       }
@@ -47025,7 +47025,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.75,
-          "output_per_million": 14.0,
+          "output_per_million": 14,
           "cache_read_input_per_million": 0.175
         }
       }
@@ -47265,9 +47265,9 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 8.0,
-          "output_per_million": 15.0,
-          "cache_read_input_per_million": 2.0
+          "input_per_million": 8,
+          "output_per_million": 15,
+          "cache_read_input_per_million": 2
         }
       }
     },
@@ -47770,7 +47770,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 2.5,
-          "output_per_million": 10.0
+          "output_per_million": 10
         }
       }
     },
@@ -47911,8 +47911,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 30.0,
+          "input_per_million": 5,
+          "output_per_million": 30,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -48418,8 +48418,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 15.0,
-          "output_per_million": 60.0,
+          "input_per_million": 15,
+          "output_per_million": 60,
           "cache_read_input_per_million": 7.5
         }
       }
@@ -48483,8 +48483,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 150.0,
-          "output_per_million": 600.0
+          "input_per_million": 150,
+          "output_per_million": 600
         }
       }
     },
@@ -48546,8 +48546,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0,
+          "input_per_million": 2,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -48612,8 +48612,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 10.0,
-          "output_per_million": 40.0,
+          "input_per_million": 10,
+          "output_per_million": 40,
           "cache_read_input_per_million": 2.5
         }
       }
@@ -48814,8 +48814,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 20.0,
-          "output_per_million": 80.0
+          "input_per_million": 20,
+          "output_per_million": 80
         }
       }
     },
@@ -48962,8 +48962,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0,
+          "input_per_million": 2,
+          "output_per_million": 8,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -49473,8 +49473,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 1.0,
-          "output_per_million": 1.0
+          "input_per_million": 1,
+          "output_per_million": 1
         }
       }
     },
@@ -49532,9 +49532,9 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0,
-          "reasoning_output_per_million": 3.0
+          "input_per_million": 2,
+          "output_per_million": 8,
+          "reasoning_output_per_million": 3
         }
       }
     },
@@ -49594,8 +49594,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 3.0,
-          "output_per_million": 15.0
+          "input_per_million": 3,
+          "output_per_million": 15
         }
       }
     },
@@ -49654,8 +49654,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 3.0,
-          "output_per_million": 15.0
+          "input_per_million": 3,
+          "output_per_million": 15
         }
       }
     },
@@ -49717,8 +49717,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 8.0
+          "input_per_million": 2,
+          "output_per_million": 8
         }
       }
     },
@@ -50141,7 +50141,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.66,
-          "output_per_million": 1.0
+          "output_per_million": 1
         }
       }
     },
@@ -52997,7 +52997,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.15,
-          "output_per_million": 1.0,
+          "output_per_million": 1,
           "cache_read_input_per_million": 0.049999999999999996
         }
       }
@@ -53559,7 +53559,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.15,
-          "output_per_million": 1.0,
+          "output_per_million": 1,
           "cache_read_input_per_million": 0.049999999999999996
         }
       }
@@ -54031,8 +54031,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 1.0,
-          "output_per_million": 3.0
+          "input_per_million": 1,
+          "output_per_million": 3
         }
       }
     },
@@ -54219,8 +54219,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 3.0,
-          "output_per_million": 3.0
+          "input_per_million": 3,
+          "output_per_million": 3
         }
       }
     },
@@ -55267,7 +55267,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.6,
-          "output_per_million": 6.0
+          "output_per_million": 6
         }
       }
     },
@@ -56055,8 +56055,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 6.0,
+          "input_per_million": 2,
+          "output_per_million": 6,
           "cache_read_input_per_million": 0.19999999999999998
         }
       }
@@ -57861,7 +57861,7 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 1.2,
-          "output_per_million": 4.0,
+          "output_per_million": 4,
           "cache_read_input_per_million": 0.24
         }
       }
@@ -57925,8 +57925,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 1.0,
-          "output_per_million": 5.0,
+          "input_per_million": 1,
+          "output_per_million": 5,
           "cache_read_input_per_million": 0.09999999999999999
         }
       }
@@ -57992,8 +57992,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 25.0,
+          "input_per_million": 5,
+          "output_per_million": 25,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -58057,8 +58057,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 3.0,
-          "output_per_million": 15.0,
+          "input_per_million": 3,
+          "output_per_million": 15,
           "cache_read_input_per_million": 0.3
         }
       }
@@ -58130,9 +58130,9 @@
       "text_tokens": {
         "standard": {
           "input_per_million": 0.5,
-          "output_per_million": 3.0,
+          "output_per_million": 3,
           "cache_read_input_per_million": 0.049999999999999996,
-          "reasoning_output_per_million": 3.0
+          "reasoning_output_per_million": 3
         }
       }
     },
@@ -58203,10 +58203,10 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 2.0,
-          "output_per_million": 12.0,
+          "input_per_million": 2,
+          "output_per_million": 12,
           "cache_read_input_per_million": 0.19999999999999998,
-          "reasoning_output_per_million": 12.0
+          "reasoning_output_per_million": 12
         }
       }
     },
@@ -58353,8 +58353,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 5.0,
-          "output_per_million": 30.0,
+          "input_per_million": 5,
+          "output_per_million": 30,
           "cache_read_input_per_million": 0.5
         }
       }
@@ -58621,8 +58621,8 @@
     "pricing": {
       "text_tokens": {
         "standard": {
-          "input_per_million": 1.0,
-          "output_per_million": 5.0
+          "input_per_million": 1,
+          "output_per_million": 5
         }
       }
     },
@@ -61742,6 +61742,71 @@
     "metadata": {
       "object": "model",
       "owned_by": "xai"
+    }
+  },
+  {
+    "id": "MiniMax-M3",
+    "name": "Kairós M3",
+    "provider": "minimax",
+    "family": "minimax-m",
+    "created_at": "2026-05-01 00:00:00 UTC",
+    "context_window": 204800,
+    "max_output_tokens": 8192,
+    "knowledge_cutoff": "2026-04-01",
+    "modalities": {
+      "input": [
+        "text"
+      ],
+      "output": [
+        "text"
+      ]
+    },
+    "capabilities": [
+      "streaming",
+      "function_calling",
+      "structured_output"
+    ],
+    "pricing": {},
+    "metadata": {
+      "object": "model",
+      "owned_by": "minimax",
+      "open_weights": false,
+      "attachment": false,
+      "temperature": true,
+      "reasoning": true,
+      "note": "Emite bloco <think>...</think> no content (filtrado por KairosAgent.strip_reasoning)."
+    }
+  },
+  {
+    "id": "MiniMax-M2.5",
+    "name": "Kairós M2.5",
+    "provider": "minimax",
+    "family": "minimax-m",
+    "created_at": "2026-02-01 00:00:00 UTC",
+    "context_window": 204800,
+    "max_output_tokens": 8192,
+    "knowledge_cutoff": "2026-01-01",
+    "modalities": {
+      "input": [
+        "text"
+      ],
+      "output": [
+        "text"
+      ]
+    },
+    "capabilities": [
+      "streaming",
+      "function_calling",
+      "structured_output"
+    ],
+    "pricing": {},
+    "metadata": {
+      "object": "model",
+      "owned_by": "minimax",
+      "open_weights": false,
+      "attachment": false,
+      "temperature": true,
+      "reasoning": false
     }
   }
 ]
