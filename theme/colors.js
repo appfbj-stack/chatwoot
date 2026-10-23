@@ -229,8 +229,8 @@ export const colors = {
     },
 
     black: '#000000',
-    // Kairos CRM: verde néon emerald-500 (#10E070)
-    brand: '#10E070',
+    // Kairos CRM: azul (#2781F6)
+    brand: '#2781F6',
     portal: 'var(--dynamic-portal-color)',
     'portal-soft': 'var(--dynamic-portal-color-soft)',
     'portal-faint': 'var(--dynamic-portal-color-faint)',

@@ -24,6 +24,7 @@ Rails.application.configure do
   config.public_file_server.headers = {
     'Cache-Control' => "public, max-age=#{1.year.to_i}"
   }
+
   # Compress JavaScripts and CSS.
   # config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
