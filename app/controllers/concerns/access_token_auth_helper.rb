@@ -19,6 +19,33 @@ module AccessTokenAuthHelper
     request.headers[:api_access_token] || request.headers[:HTTP_API_ACCESS_TOKEN]
   end
 
+  # Kairos CRM: integracoes externas (Uazapi/Wazapi) mandam o token no header
+  # `chatwoot_access_token` porque a Uazapi usa o header padrao dela. Aceitamos
+  # qualquer um dos tres para nao obrigar o integrador a mudar.
+  def kairos_external_token
+    request.headers[:chatwoot_access_token] || request.headers[:HTTP_CHATWOOT_ACCESS_TOKEN]
+  end
+
+  # Quando o token veio por header externo, forcamos o caminho de autenticacao por
+  # API (o DeviseTokenAuth nao conhece esse header e cairia no devise_session).
+  def external_token_request?
+    kairos_external_token.present?
+  end
+
+  def ensure_access_token
+    token = bearer_access_token || kairos_external_token || legacy_access_token
+    @access_token = AccessToken.find_by(token: token) if token.present?
+  end
+
+  def allowed_current_user_type?(resource)
+    return true if resource.is_a?(User)
+    return true if resource.is_a?(AgentBot)
+    # Token de Account e usado por integracoes externas (Uazapi/Wazapi).
+    return true if resource.is_a?(Account)
+
+    false
+  end
+
   # TODO: Use request.bearer_token once we upgrade to a Rails version that provides it.
   def bearer_access_token
     scheme, token = request.authorization.to_s.split(' ', 2)
