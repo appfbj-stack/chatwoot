@@ -49,9 +49,40 @@ class Captain::AssistantResponse < ApplicationRecord
 
   def self.search(query, account_id: nil)
     embedding = Captain::Llm::EmbeddingService.new(account_id: account_id).get_embedding(query)
-    return none if embedding.blank?
+    if embedding.present?
+      vector_results = nearest_neighbors(:embedding, embedding, distance: 'cosine').limit(5)
+      # Precisa devolver RELATION: a tool chama .includes(:documentable) no resultado.
+      return vector_results if vector_results.exists?
+    end
 
-    nearest_neighbors(:embedding, embedding, distance: 'cosine').limit(5)
+    # Kairós: fallback textual (pg_trgm) quando o embedding nao esta disponivel.
+    # A cota da MiniMax em /v1/embeddings estoura o rate limit e devolvia nil,
+    # o que deixava a base de conhecimento cega (o Captain nao citava nada).
+    # Com o fallback, a busca por similaridade textual (trigram) cobre o caso.
+    text = query.to_s.strip
+    return none if text.blank?
+
+    # Tokens com 4+ caracteres: casamento literal (question ou answer).
+    # O trigram sozinho dilui em textos longos ("oficina" nao pontuava).
+    tokens = text.downcase.scan(/[[:alnum:]]{4,}/).uniq
+    token_clause = tokens.map { '(lower(question) LIKE ? OR lower(answer) LIKE ?)' }.join(' OR ')
+    token_binds = tokens.flat_map { |t| ["%#{t}%", "%#{t}%"] }
+
+    where_sql = "(similarity(lower(question), lower(?)) > 0.15 OR similarity(lower(answer), lower(?)) > 0.15)"
+    where_sql = "(#{where_sql}) OR (#{token_clause})" if tokens.any?
+    where_binds = [text, text] + token_binds
+
+    scope = all.where(sanitize_sql_array([where_sql, *where_binds]))
+
+    order_sql = +'GREATEST(similarity(lower(question), lower(?)), similarity(lower(answer), lower(?))) DESC'
+    if tokens.any?
+      order_sql = "CASE WHEN #{token_clause} THEN 1 ELSE 0 END DESC, #{order_sql}"
+      order_binds = token_binds + [text, text]
+    else
+      order_binds = [text, text]
+    end
+
+    scope.order(Arel.sql(sanitize_sql_array([order_sql, *order_binds]))).limit(5)
   end
 
   def customer_visible_source_url

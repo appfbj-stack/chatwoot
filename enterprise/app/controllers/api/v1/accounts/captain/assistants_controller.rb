@@ -46,8 +46,16 @@ class Api::V1::Accounts::Captain::AssistantsController < Api::V1::Accounts::Base
   end
 
   def tools
-    assistant = account_assistants.find(params[:assistant_id])
-    @tools = assistant.available_agent_tools
+    # KairÃ³s: o front chama /captain/assistants/tools e as vezes nao manda o
+    # assistant_id (ainda nao selecionou um assistant na tela). Antes isso
+    # quebrava com 404 (RecordNotFound: Couldn't find Captain::Assistant
+    # without an ID). Agora cai para o primeiro assistant da conta.
+    assistant = if params[:assistant_id].present?
+                  account_assistants.find(params[:assistant_id])
+                else
+                  account_assistants.first
+                end
+    @tools = assistant&.available_agent_tools || []
   end
 
   def metrics
