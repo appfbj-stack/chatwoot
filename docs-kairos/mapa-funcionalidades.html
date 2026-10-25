@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Kairos CRM — Mapa de Funcionalidades</title>
+<style>
+  @page { size: A4; margin: 14mm 12mm 16mm 12mm; }
+
+  :root {
+    --brand: #2781F6;
+    --brand-dark: #1657B8;
+    --ink: #0F172A;
+    --muted: #64748B;
+    --line: #E2E8F0;
+    --bg-soft: #F8FAFC;
+    --on: #16A34A;
+    --off: #CBD5E1;
+    --gold: #F59E0B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    margin: 0;
+    font-size: 9.2pt;
+    line-height: 1.45;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- CAPA ---------- */
+  .capa {
+    height: 253mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(160deg, #0B1220 0%, #123A7A 55%, #2781F6 100%);
+    color: #fff;
+    padding: 22mm;
+    border-radius: 4mm;
+    page-break-after: always;
+  }
+  .capa .kicker {
+    font-size: 8pt; letter-spacing: 3.5px; text-transform: uppercase;
+    color: #93C5FD; margin-bottom: 8mm; font-weight: 600;
+  }
+  .capa h1 { font-size: 40pt; margin: 0 0 4mm; line-height: 1.02; letter-spacing: -1px; }
+  .capa h1 span { color: #7DD3FC; }
+  .capa .sub { font-size: 12pt; color: #DBEAFE; max-width: 118mm; margin-bottom: 12mm; }
+  .capa .meta { display: flex; gap: 10mm; flex-wrap: wrap; font-size: 9.5pt; }
+  .capa .meta div { border-left: 2.5px solid #7DD3FC; padding-left: 4mm; }
+  .capa .meta b { display: block; font-size: 7.5pt; text-transform: uppercase; letter-spacing: 1.2px; color: #93C5FD; font-weight: 600; }
+  .capa .url {
+    margin-top: 14mm; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+    padding: 5mm; border-radius: 2mm; font-size: 13pt; font-weight: 600; letter-spacing: .3px;
+  }
+
+  /* ---------- SEÇÕES ---------- */
+  section { page-break-before: always; }
+  section:first-of-type { page-break-before: auto; }
+
+  h2 {
+    font-size: 17pt; margin: 0 0 2mm; color: var(--brand-dark);
+    padding-bottom: 2.5mm; border-bottom: 2.5px solid var(--brand);
+  }
+  h2 .n {
+    display: inline-block; background: var(--brand); color: #fff;
+    width: 9mm; height: 9mm; line-height: 9mm; text-align: center;
+    border-radius: 2mm; font-size: 11pt; margin-right: 3mm; vertical-align: 1mm;
+  }
+  .lead { color: var(--muted); margin: 0 0 6mm; font-size: 9.5pt; }
+
+  h3 {
+    font-size: 11pt; margin: 7mm 0 3mm; color: var(--ink);
+    display: flex; align-items: center; gap: 2.5mm;
+  }
+  h3::before { content: ""; width: 3mm; height: 3mm; background: var(--brand); border-radius: 50%; }
+
+  /* ---------- SUMÁRIO ---------- */
+  .toc { margin-top: 2mm; }
+  .toc a {
+    display: flex; align-items: baseline; gap: 3mm; text-decoration: none;
+    color: var(--ink); padding: 3mm 0; border-bottom: 1px dashed var(--line);
+  }
+  .toc a .num { color: var(--brand); font-weight: 700; min-width: 8mm; }
+  .toc a .t { flex: 1; font-weight: 600; }
+  .toc a .d { color: var(--muted); font-size: 8.2pt; text-align: right; max-width: 62mm; }
+
+  /* ---------- STATS ---------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-bottom: 6mm; }
+  .stat {
+    background: var(--bg-soft); border: 1px solid var(--line);
+    border-radius: 2.5mm; padding: 4mm; text-align: center;
+    border-top: 3px solid var(--brand);
+  }
+  .stat b { display: block; font-size: 21pt; color: var(--brand-dark); line-height: 1; }
+  .stat span { font-size: 7.4pt; text-transform: uppercase; letter-spacing: .9px; color: var(--muted); font-weight: 600; }
+
+  /* ---------- MAPA (grade de blocos) ---------- */
+  .mapa { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 3mm; }
+  .bloco {
+    border: 1px solid var(--line); border-radius: 3mm; overflow: hidden;
+    background: #fff; break-inside: avoid;
+  }
+  .bloco > header {
+    background: var(--bg-soft); padding: 3.2mm 4mm; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 2.5mm;
+  }
+  .bloco > header .ic {
+    width: 7mm; height: 7mm; border-radius: 1.8mm; background: var(--brand);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 10pt; flex-shrink: 0;
+  }
+  .bloco > header h4 { margin: 0; font-size: 10.5pt; flex: 1; }
+  .bloco > header .cnt {
+    font-size: 7.5pt; font-weight: 700; color: var(--brand-dark);
+    background: #DBEAFE; padding: 1mm 2.5mm; border-radius: 1.5mm;
+  }
+  .bloco ul { list-style: none; margin: 0; padding: 2.5mm 4mm 3mm; }
+  .bloco li {
+    font-size: 8.6pt; padding: 1.4mm 0; border-bottom: 1px dotted #EDF2F7;
+    display: flex; gap: 2mm; align-items: flex-start;
+  }
+  .bloco li:last-child { border-bottom: 0; }
+  .bloco li .dot { width: 4mm; height: 4mm; border-radius: 50%; flex-shrink: 0; margin-top: 1mm; }
+  .dot.on { background: var(--on); }
+  .dot.off { background: var(--off); }
+  .bloco li .txt { flex: 1; }
+  .bloco li .tag {
+    font-size: 6.6pt; font-weight: 700; color: #92400E; background: #FEF3C7;
+    padding: .6mm 1.8mm; border-radius: 1mm; white-space: nowrap;
+  }
+  .bloco li .tag.off-tag { color: var(--muted); background: #F1F5F9; }
+
+  /* ---------- TABELA ---------- */
+  table { width: 100%; border-collapse: collapse; margin-top: 3mm; }
+  thead th {
+    background: var(--brand-dark); color: #fff; text-align: left;
+    padding: 2.6mm 3mm; font-size: 8pt; text-transform: uppercase;
+    letter-spacing: .7px; font-weight: 600;
+  }
+  tbody td { padding: 2.4mm 3mm; border-bottom: 1px solid var(--line); font-size: 8.6pt; }
+  tbody tr:nth-child(even) { background: var(--bg-soft); }
+  .pill {
+    display: inline-block; font-size: 7.2pt; font-weight: 700;
+    padding: .8mm 2.4mm; border-radius: 1.2mm;
+  }
+  .pill.sim { background: #DCFCE7; color: #15803D; }
+  .pill.nao { background: #F1F5F9; color: #64748B; }
+  .pill.prem { background: #FEF3C7; color: #92400E; }
+
+  /* ---------- FLUXO ---------- */
+  .fluxo { display: flex; align-items: stretch; gap: 0; margin: 5mm 0; }
+  .passo {
+    flex: 1; background: var(--bg-soft); border: 1px solid var(--line);
+    border-radius: 2.5mm; padding: 3.5mm; text-align: center; position: relative;
+  }
+  .passo .i { font-size: 15pt; color: var(--brand); line-height: 1; }
+  .passo b { display: block; font-size: 8.6pt; margin: 1.5mm 0 .8mm; }
+  .passo small { color: var(--muted); font-size: 7.4pt; line-height: 1.3; display: block; }
+  .seta { align-self: center; padding: 0 2mm; color: var(--brand); font-size: 13pt; font-weight: 700; }
+
+  /* ---------- CALLOUT ---------- */
+  .callout {
+    border-left: 3.5px solid var(--gold); background: #FFFBEB;
+    padding: 4mm 5mm; border-radius: 0 2.5mm 2.5mm 0; margin: 5mm 0;
+    font-size: 8.8pt;
+  }
+  .callout b { color: #92400E; }
+  .callout.blue { border-left-color: var(--brand); background: #EFF6FF; }
+  .callout.blue b { color: var(--brand-dark); }
+
+  /* ---------- RODAPÉ ---------- */
+  .rodape {
+    position: fixed; bottom: -10mm; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 7.4pt; color: var(--muted);
+    border-top: 1px solid var(--line); padding-top: 2mm;
+  }
+  .rodape .l { font-weight: 600; color: var(--brand-dark); }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<div class="capa">
+  <div class="kicker">Documento técnico · v4.19</div>
+  <h1>Kairos <span>CRM</span></h1>
+  <div class="sub">Mapa visual de todas as funcionalidades da plataforma — o que está ativo hoje, o que existe mas está desligado, e como os módulos se conectam.</div>
+  <div class="meta">
+    <div><b>Instância</b>chat.fbautomacao.space</div>
+    <div><b>Conta</b>Kairos CRM (#1)</div>
+    <div><b>WhatsApp</b>Uazapi · kairos-main</div>
+    <div><b>Gerado em</b>23/10/2026</div>
+  </div>
+  <div class="url">https://chat.fbautomacao.space</div>
+</div>
+
+<!-- ============ SUMÁRIO ============ -->
+<section id="sumario">
+  <h2><span class="n">0</span>Sumário</h2>
+  <div class="toc">
+    <a href="#panorama"><span class="num">1</span><span class="t">Panorama da instância</span><span class="d">Números reais e saúde do app</span></a>
+    <a href="#mapa"><span class="num">2</span><span class="t">Mapa de funcionalidades</span><span class="d">8 blocos · o que está ativo</span></a>
+    <a href="#canais"><span class="num">3</span><span class="t">Canais de atendimento</span><span class="d">WhatsApp, e-mail, social, site</span></a>
+    <a href="#ia"><span class="num">4</span><span class="t">Inteligência artificial</span><span class="d">Captain + MiniMax-M3</span></a>
+    <a href="#fluxo"><span class="num">5</span><span class="t">Fluxo de uma mensagem</span><span class="d">Da chegada ao WhatsApp à resposta</span></a>
+    <a href="#desligadas"><span class="num">6</span><span class="t">Módulos desligados</span><span class="d">31 flags disponíveis para ativar</span></a>
+    <a href="#api"><span class="num">7</span><span class="t">API, Webhooks e Integrações</span><span class="d">Pontos de extensão</span></a>
+    <a href="#notas"><span class="num">8</span><span class="t">Notas e pendências</span><span class="d">O que ainda não está pronto</span></a>
+  </div>
+
+  <div class="callout blue" style="margin-top:10mm">
+    <b>Como ler este documento.</b> Bolinha <span style="color:#16A34A">●</span> verde = módulo ativo e utilizável hoje.
+    Bolinha <span style="color:#CBD5E1">●</span> cinza = existe na plataforma mas está desligado nesta conta.
+    Etiqueta <b>premium</b> = requer licença do plano superior.
+  </div>
+</section>
+
+<!-- ============ 1. PANORAMA ============ -->
+<section id="panorama">
+  <h2><span class="n">1</span>Panorama da instância</h2>
+  <p class="lead">Estado real do <b>Kairos CRM</b> em produção, lido direto do banco de dados da VPS em 23/10/2026.</p>
+
+  <div class="stats">
+    <div class="stat"><b>29</b><span>Módulos ativos</span></div>
+    <div class="stat"><b>1.122</b><span>Contatos</span></div>
+    <div class="stat"><b>16</b><span>Conversas</span></div>
+    <div class="stat"><b>94</b><span>Mensagens</span></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Recurso</th><th>Situação</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      <tr><td>Conta</td><td><span class="pill sim">Única</span></td><td>“Kairos CRM” (#1) — instalação single-tenant</td></tr>
+      <tr><td>Agentes</td><td><span class="pill sim">1 ativo</span></td><td>admin@kairoscrm.com</td></tr>
+      <tr><td>Inbox</td><td><span class="pill sim">1 canal</span></td><td>“WhatsApp Kairos” — tipo API (Uazapi)</td></tr>
+      <tr><td>Empresas</td><td><span class="pill nao">0 registros</span></td><td>Módulo ligado, base ainda vazia</td></tr>
+      <tr><td>Rótulos</td><td><span class="pill nao">0 registros</span></td><td>Módulo ligado, nenhum rótulo criado</td></tr>
+      <tr><td>Contatos</td><td><span class="pill sim">1.122</span></td><td>Importados do histórico do WhatsApp</td></tr>
+      <tr><td>Banco</td><td><span class="pill sim">Saudável</span></td><td>PostgreSQL + pgvector · 109 tabelas · 201 migrations</td></tr>
+      <tr><td>Fila</td><td><span class="pill sim">Operacional</span></td><td>Sidekiq + Redis em containers dedicados</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <b>Atenção — 1.122 contatos veio de um import.</b> Esse volume veio da extração do histórico do WhatsApp,
+    não de uma migração oficial. Estão incluídos contatos pessoais. Antes de usar comercialmente,
+    recomendo uma limpeza dos contatos órfãos.
+  </div>
+</section>
+
+<!-- ============ 2. MAPA ============ -->
+<section id="mapa">
+  <h2><span class="n">2</span>Mapa de funcionalidades</h2>
+  <p class="lead">Os 29 módulos ativos, organizados por área de uso.</p>
+
+  <div class="mapa">
+
+    <div class="bloco">
+      <header><span class="ic">💬</span><h4>Caixa de Entrada</h4><span class="cnt">6</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>Inbox View</b> — lista unificada de conversas</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Auto Resolve</b> — fecha conversas ociosas sozinho</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Assignment V2</b> — distribuição de conversas entre agentes</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Inbox Management</b> — criar e configurar caixas</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Help Center</b> — central de ajuda pública</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Chatwoot V4</b> — interface moderna de conversa</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <header><span class="ic">👥</span><h4>Equipe e Contatos</h4><span class="cnt">7</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>Agent Management</b> — cadastro e permissões de agentes</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Team Management</b> — equipes e departamentos</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>CRM</b> — ficha completa do cliente</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Companies</b> — empresas e organizações</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Custom Attributes</b> — campos personalizados</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Labels</b> — etiquetas para segmentar</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Inbound Emails</b> — receber e-mail na caixa</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <header><span class="ic">⚡</span><h4>Produtividade</h4><span class="cnt">5</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>Macros</b> — respostas prontas e ações em lote</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Canned Responses</b> — respostas rápidas salvas</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Automations</b> — regras automáticas de triagem</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Voice Recorder</b> — gravar áudio na conversa</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Agent Bots</b> — robôs de atendimento</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <header><span class="ic">📊</span><h4>Dados e Relatórios</h4><span class="cnt">2</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>Reports</b> — relatórios de atendimento e produtividade</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Campaigns</b> — disparo em massa de mensagens</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <header><span class="ic">🤖</span><h4>Inteligência Artificial</h4><span class="cnt">3</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>Captain</b> <span class="tag">premium</span> — assistente de IA</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Captain Tasks</b> — IA executando tarefas</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Captain Classifier</b> — classificador automático</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <header><span class="ic">🔌</span><h4>Canais e Integrações</h4><span class="cnt">4</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>WhatsApp (Uazapi)</b> — canal ativo em produção</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Email Channel</b> — canal de e-mail nativo</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Website Channel</b> — widget no site</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Integrations</b> — Connection Center</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <header><span class="ic">📱</span><h4>Canais Sociais</h4><span class="cnt">3</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>Facebook</b> — Messenger e comentários</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Instagram</b> — DM e comentários</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>TikTok</b> — mensagens e comentários</span></li>
+      </ul>
+    </div>
+
+    <div class="bloco">
+      <header><span class="ic">🔧</span><h4>Extensibilidade</h4><span class="cnt">2</span></header>
+      <ul>
+        <li><span class="dot on"></span><span class="txt"><b>API e Webhooks</b> — acesso programático total</span></li>
+        <li><span class="dot on"></span><span class="txt"><b>Custom Tools</b> <span class="tag off-tag">desligado</span> — ferramentas próprias para IA</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 3. CANAIS ============ -->
+<section id="canais">
+  <h2><span class="n">3</span>Canais de atendimento</h2>
+  <p class="lead">Por onde o cliente pode falar com o Kairós.</p>
+
+  <table>
+    <thead><tr><th>Canal</th><th>Estado</th><th>Situação na instância</th><th>Requisitos</th></tr></thead>
+    <tbody>
+      <tr><td>WhatsApp (Uazapi)</td><td><span class="pill sim">EM PRODUÇÃO</span></td><td>Instância <b>kairos-main</b> conectada e receiving</td><td>Instância Uazapi pareada</td></tr>
+      <tr><td>E-mail</td><td><span class="pill sim">ATIVO</span></td><td>Canal nativo habilitado</td><td>Domínio e SMTP configurados</td></tr>
+      <tr><td>Website</td><td><span class="pill sim">ATIVO</span></td><td>Widget pronto para instalar</td><td>Colar o script no site</td></tr>
+      <tr><td>Facebook Messenger</td><td><span class="pill sim">ATIVO</span></td><td>Canal habilitado</td><td>App do Facebook Meta</td></tr>
+      <tr><td>Instagram</td><td><span class="pill sim">ATIVO</span></td><td>Canal habilitado</td><td>Conta Business no Instagram</td></tr>
+      <tr><td>TikTok</td><td><span class="pill sim">ATIVO</span></td><td>Canal habilitado</td><td>App do TikTok for Business</td></tr>
+      <tr><td>Canal de voz</td><td><span class="pill prem">PREMIUM</span></td><td>Desligado nesta conta</td><td>Licença + provedor de telefonia</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout blue">
+    <b>Sobre o WhatsApp.</b> A conexão usa a <b>Uazapi</b> como bridge: ela fala com o WhatsApp e
+    entrega as mensagens no Kairos CRM através de um proxy de autenticação
+    (<b>kairosapi.fbautomacao.space</b>). O número conectado hoje é o <b>particular</b> do Pastor.
+  </div>
+</section>
+
+<!-- ============ 4. IA ============ -->
+<section id="ia">
+  <h2><span class="n">4</span>Inteligência Artificial</h2>
+  <p class="lead">O módulo Captain, operando com o modelo MiniMax-M3.</p>
+
+  <h3>Arquitetura</h3>
+  <div class="fluxo">
+    <div class="passo"><div class="i">💬</div><b>Mensagem</b><small>cliente no WhatsApp</small></div>
+    <div class="seta">→</div>
+    <div class="passo"><div class="i">🔗</div><b>Uazapi</b><small>bridge WhatsApp</small></div>
+        <div class="seta">→</div>
+    <div class="passo"><div class="i">📥</div><b>Webhook</b><small>proxy kairosapi</small></div>
+    <div class="seta">→</div>
+    <div class="passo"><div class="i">🗄️</div><b>Kairos CRM</b><small>grava a conversa</small></div>
+  </div>
+
+  <h3>Componentes</h3>
+  <table>
+    <thead><tr><th>Componente</th><th>Função</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td>Captain</td><td>Assistente de IA que entende contexto da conversa</td><td><span class="pill sim">ATIVO</span></td></tr>
+      <tr><td>Agente “Kairos”</td><td>Identidade, tom e regras de resposta do assistente</td><td><span class="pill sim">CONFIGURADO</span></td></tr>
+      <tr><td>MiniMax-M3</td><td>Modelo de linguagem (endpoint api.minimax.io)</td><td><span class="pill sim">VALIDADO</span></td></tr>
+      <tr><td>Filtro de raciocínio</td><td>Remove blocos <code>&lt;think&gt;</code> da resposta final</td><td><span class="pill sim">ATIVO</span></td></tr>
+      <tr><td>Captain Tasks</td><td>IA executando ações dentro do CRM</td><td><span class="pill sim">ATIVO</span></td></tr>
+      <tr><td>Captain Classifier</td><td>Classifica e prioriza conversas automaticamente</td><td><span class="pill sim">ATIVO</span></td></tr>
+      <tr><td>Bot automático</td><td>Resposta automática sem humano no meio</td><td><span class="pill nao">DESLIGADO</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Identidade do agente “Kairos”</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Configuração</th></tr></thead>
+    <tbody>
+      <tr><td>Nome</td><td>Kairos</td></tr>
+      <tr><td>Empresa</td><td>Kairós — Adamantina/SP · DDD 15</td></tr>
+      <tr><td>Produto</td><td>Aplicativos PWA (sem app nativo Android/iOS)</td></tr>
+      <tr><td>Setores atendidos</td><td>Salão · Barbearia · Estética · Oficina · Pet shop · Assistência</td></tr>
+      <tr><td>Tom de voz</td><td>Consultivo, acolhedor, português brasileiro</td></tr>
+      <tr><td>Proteções</td><td>Não promete prazo/preço · Não vaza dados · Admite o que não sabe</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <b>Bot automático está DESLIGADO de propósito.</b> Existe um gateway protetor com sete camadas
+    (anti-loop por <code>echo_id</code>, lista de números bloqueados, só cliente novo, horário
+    comercial, rate limit, dry-run e modo sombra). Ele analisa e registra, mas <b>não envia
+    nenhuma mensagem</b> até ser explicitamente autorizado.
+  </div>
+</section>
+
+<!-- ============ 5. FLUXO ============ -->
+<section id="fluxo">
+  <h2><span class="n">5</span>Fluxo de uma mensagem</h2>
+  <p class="lead">O caminho completo de uma mensagem de cliente, da entrada à resposta.</p>
+
+  <div class="fluxo">
+    <div class="passo"><div class="i">📲</div><b>Cliente envia</b><small>mensagem no WhatsApp</small></div>
+    <div class="seta">→</div>
+    <div class="passo"><div class="i">☁️</div><b>Uazapi</b><small>recebe e normaliza</small></div>
+        <div class="seta">→</div>
+    <div class="passo"><div class="i">🔀</div><b>Proxy</b><small>traduz autenticação</small></div>
+        <div class="seta">→</div>
+    <div class="passo"><div class="i">💬</div><b>Conversa criada</b><small>aparece no painel</small></div>
+  </div>
+
+  <div class="fluxo">
+    <div class="passo"><div class="i">🔍</div><b>Proteções</b><small>número bloqueado? loop? horário?</small></div>
+        <div class="seta">→</div>
+    <div class="passo"><div class="i">🧠</div><b>Captain + IA</b><small>MiniMax-M3 monta a resposta</small></div>
+        <div class="seta">→</div>
+    <div class="passo"><div class="i">🛡️</div><b>Filtro</b><small>remove raciocínio interno</small></div>
+        <div class="seta">→</div>
+    <div class="passo"><div class="i">✅</div><b>Envio</b><small>volta pelo mesmo caminho</small></div>
+  </div>
+
+  <h3>As sete proteções do gateway</h3>
+  <table>
+    <thead><tr><th>#</th><th>Proteção</th><th>O que impede</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>Lista de números bloqueados</td><td>Responder o Pastor ou contatos pessoais</td></tr>
+      <tr><td>1</td><td>Anti-loop por <code>echo_id</code></td><td>O bot de responder a si mesmo</td></tr>
+      <tr><td>2</td><td>Verificação da última mensagem</td><td>Loop em caso de perda de estado</td></tr>
+      <tr><td>3</td><td>Rate limit global</td><td>Enviar em volume excessivo</td></tr>
+      <tr><td>4</td><td>Horário comercial</td><td>Responder de madrugada ou fim de semana</td></tr>
+      <tr><td>5</td><td>Somente cliente novo</td><td>Intervir em conversa já em andamento</td></tr>
+      <tr><td>6</td><td>Dry-run / modo sombra</td><td>Enviar mensagem real sem autorização</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 6. DESLIGADAS ============ -->
+<section id="desligadas">
+  <h2><span class="n">6</span>Módulos desligados</h2>
+  <p class="lead">31 funcionalidades disponíveis na plataforma, mas desativadas nesta conta. Ativar é possível — basta ligar o bit correspondente.</p>
+
+  <table>
+    <thead><tr><th>Módulo</th><th>Categoria</th><th>Requisitos</th><th>Utilidade</th></tr></thead>
+    <tbody>
+      <tr><td>SLA (Prazos)</td><td>Atendimento</td><td><span class="pill prem">premium</span></td><td>Alerta de tempo máximo de resposta</td></tr>
+      <tr><td>Advanced Search</td><td>Busca</td><td><span class="pill prem">premium</span></td><td>Busca avançada com filtros complexos</td></tr>
+      <tr><td>Audit Logs</td><td>Segurança</td><td><span class="pill prem">premium</span></td><td>Histórico de ações dos agentes</td></tr>
+      <tr><td>Custom Roles</td><td>Permissões</td><td><span class="pill prem">premium</span></td><td>Criar papéis sob medida</td></tr>
+      <tr><td>Custom Tools</td><td>IA</td><td><span class="pill prem">premium</span></td><td>Ferramentas próprias para a IA usar</td></tr>
+      <tr><td>Auto Translate</td><td>Internacional</td><td><span class="pill prem">premium</span></td><td>Tradução automática de mensagens</td></tr>
+      <tr><td>Campaign Analytics</td><td>Campanhas</td><td><span class="pill prem">premium</span></td><td>Métricas de desempenho de campanhas</td></tr>
+      <tr><td>Conversation Monitors</td><td>Atendimento</td><td><span class="pill prem">premium</span></td><td>Supervisão de conversas em tempo real</td></tr>
+      <tr><td>CSAT Review Notes</td><td>Qualidade</td><td><span class="pill prem">premium</span></td><td>Notas internas de avaliação de atendimento</td></tr>
+      <tr><td>Company Enrichment</td><td>CRM</td><td><span class="pill prem">premium</span></td><td>Enriquecer dados de empresas</td></tr>
+      <tr><td>Captain Doc Sync</td><td>IA</td><td><span class="pill prem">premium</span></td><td>Sincronizar documentos com a IA</td></tr>
+      <tr><td>Required Attributes</td><td>CRM</td><td><span class="pill prem">premium</span></td><td>Campos obrigatórios em conversas</td></tr>
+      <tr><td>Advanced Assignment</td><td>Equipe</td><td><span class="pill prem">premium</span></td><td>Regras avançadas de distribuição</td></tr>
+      <tr><td>Audit Log IP</td><td>Segurança</td><td><span class="pill prem">premium</span></td><td>Registrar IP nas ações</td></tr>
+      <tr><td>Canal de Voz</td><td>Canal</td><td><span class="pill prem">premium</span></td><td>Telefonia e registro de chamadas</td></tr>
+      <tr><td>SAML / SSO</td><td>Login</td><td><span class="pill prem">premium</span></td><td>Autenticação corporativa única</td></tr>
+      <tr><td>Data Import</td><td>Dados</td><td><span class="pill nao">—</span></td><td>Importar contatos em lote por CSV</td></tr>
+      <tr><td>Delayed Automations</td><td>Automação</td><td><span class="pill nao">—</span></td><td>Regras com atraso programado</td></tr>
+      <tr><td>Report Rollup</td><td>Relatórios</td><td><span class="pill nao">—</span></td><td>Consolidação periódica de métricas</td></tr>
+      <tr><td>Branded Email Templates</td><td>E-mail</td><td><span class="pill nao">—</span></td><td>E-mails com identidade visual</td></tr>
+      <tr><td>Custom Reply Email</td><td>E-mail</td><td><span class="pill nao">—</span></td><td>Definir o e-mail de resposta</td></tr>
+      <tr><td>Custom Reply Domain</td><td>E-mail</td><td><span class="pill nao">—</span></td><td>Usar domínio próprio nas respostas</td></tr>
+      <tr><td>IP Lookup</td><td>Segurança</td><td><span class="pill nao">—</span></td><td>Geolocalizar quem conversa</td></tr>
+      <tr><td>Email Continuity on API</td><td>E-mail</td><td><span class="pill nao">—</span></td><td>Manter histórico em canais de API</td></tr>
+      <tr><td>Disable Branding</td><td>Marca</td><td><span class="pill prem">premium</span></td><td>Remover a marca Chatwoot da interface</td></tr>
+      <tr><td>Linear Integration</td><td>Integração</td><td><span class="pill nao">—</span></td><td>Criar tickets no Linear</td></tr>
+      <tr><td>Notion Integration</td><td>Integração</td><td><span class="pill nao">—</span></td><td>Sincronizar com o Notion</td></tr>
+      <tr><td>CRM Integration</td><td>Integração</td><td><span class="pill nao">—</span></td><td>Conectar a um CRM externo</td></tr>
+      <tr><td>Stripe Integration</td><td>Financeiro</td><td><span class="pill nao">—</span></td><td>Cobranças e assinaturas</td></tr>
+      <tr><td>WhatsApp Manual Transfer</td><td>WhatsApp</td><td><span class="pill nao">—</span></td><td>Transferir conversas entre números</td></tr>
+      <tr><td>WA Embedded Signup Flow</td><td>WhatsApp</td><td><span class="pill nao">—</span></td><td>Conectar número via fluxo da Meta</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 7. API ============ -->
+<section id="api">
+  <h2><span class="n">7</span>API, Webhooks e Integrações</h2>
+  <p class="lead">O que permite conectar o Kairós a outros sistemas.</p>
+
+  <h3>API REST</h3>
+  <table>
+    <thead><tr><th>Recurso</th><th>Endpoint</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Contatos</td><td><code>/api/v1/accounts/1/contacts</code></td><td>Listar, criar e atualizar clientes</td></tr>
+      <tr><td>Conversas</td><td><code>/api/v1/accounts/1/conversations</code></td><td>Abrir e gerir conversas</td></tr>
+      <tr><td>Mensagens</td><td><code>/api/v1/accounts/1/conversations/:id/messages</code></td><td>Enviar e listar mensagens</td></tr>
+      <tr><td>Inboxes</td><td><code>/api/v1/accounts/1/inboxes</code></td><td>Gerenciar canais</td></tr>
+      <tr><td>Documentação</td><td><code>/api/v1/docs</code></td><td>Especificação OpenAPI completa</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Webhooks e pontos de extensão</h3>
+  <table>
+    <thead><tr><th>Ponto</th><th>Endereço</th><th>Função</th></tr></thead>
+    <tbody>
+      <tr><td>Webhook do WhatsApp</td><td><code>kairosapi.fbautomacao.space/webhook</code></td><td>Recebe eventos da Uazapi</td></tr>
+      <tr><td>Proxy de autenticação</td><td><code>kairosapi.fbautomacao.space</code></td><td>Normaliza tokens Uazapi → Kairos</td></tr>
+      <tr><td>Gateway do bot</td><td><code>/bot/webhook</code></td><td>Ponto de decisão do bot</td></tr>
+      <tr><td>Log de shadow</td><td><code>/bot/dryrun-log</code></td><td>O que a IA responderia, sem enviar</td></tr>
+      <tr><td>Saúde do gateway</td><td><code>/health</code></td><td>Estado e configuração do bot</td></tr>
+      <tr><td>Lista de bloqueio</td><td><code>bloqueados.txt</code></td><td>Números que o bot nunca responde</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout blue">
+    <b>Segredos expostos.</b> Various credenciais (chave MiniMax, token do Uazapi, senha
+    administrativa) ficaram visíveis em arquivos e mensagens durante a configuração.
+    <b>Todas devem ser rotacionadas antes de qualquer uso comercial.</b>
+  </div>
+</section>
+
+<!-- ============ 8. NOTAS ============ -->
+<section id="notas">
+  <h2><span class="n">8</span>Notas e pendências</h2>
+  <p class="lead">O que ainda não está pronto ou merece atenção antes de operar comercialmente.</p>
+
+  <table>
+    <thead><tr><th>Item</th><th>Situação</th><th>Ação recomendada</th></tr></thead>
+    <tbody>
+      <tr><td>Bot automático</td><td><span class="pill nao">DESLIGADO</span></td><td>Validar anti-loop em conversa real antes de ativar</td></tr>
+      <tr><td>Número do WhatsApp</td><td><span class="pill nao">PARTICULAR</span></td><td>Conectar um número dedicado ao atendimento comercial</td></tr>
+      <tr><td>Limpeza de contatos</td><td><span class="pill nao">PENDENTE</span></td><td>Remover os 413 contatos órfãos com nomes genéricos</td></tr>
+      <tr><td>Contatos de teste</td><td><span class="pill nao">PENDENTE</span></td><td>Apagar “Teste AntiLoop”, “~Atendimento VIP” e conversas incompletas</td></tr>
+      <tr><td>Credenciais</td><td><span class="pill nao">EXPOSTAS</span></td><td>Rotacionar chave MiniMax, tokens Uazapi e senha admin</td></tr>
+      <tr><td>Campanhas</td><td><span class="pill sim">ATIVO</span></td><td>Decidir se mantém ou desliga</td></tr>
+      <tr><td>Teste do Captain pela UI</td><td><span class="pill nao">PENDENTE</span></td><td>Validar copiloto, resumo e sugestões na interface</td></tr>
+      <tr><td>Código-fonte</td><td><span class="pill nao">DIVERGENTE</span></td><td>Consolidar as alterações de runtime no branch e reconstruir a imagem</td></tr>
+      <tr><td>Cache de assets</td><td><span class="pill nao">PENDENTE</span></td><td>Resolver cache estático de 1 ano sem quebrar /public</td></tr>
+      <tr><td>White-label</td><td><span class="pill nao">FUTURO</span></td><td>Marca por cliente, se for revenda</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <b>Resumo operacional.</b> O sistema está <b>funcional e estável</b> para uso manual: mensagens
+    entram pelo WhatsApp, aparecem no painel e o Captain responde. A parte automática está
+    <b>protegida e desligada</b> por decisão, aguardando validação controlada.
+  </div>
+
+  <div style="margin-top:12mm; text-align:center; color:#64748B; font-size:8.4pt; line-height:1.7">
+    <div style="border-top:1px solid #E2E8F0; padding-top:5mm">
+      <b style="color:#1657B8">Kairos CRM</b> · Mapa de Funcionalidades · versão 4.19<br>
+      Gerado em 23/10/2026 a partir do banco de dados e do arquivo <code>config/features.yml</code><br>
+      Documento de uso interno · Kairós — Adamantina/SP
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
