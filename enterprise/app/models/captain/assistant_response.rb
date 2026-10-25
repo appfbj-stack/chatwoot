@@ -49,6 +49,8 @@ class Captain::AssistantResponse < ApplicationRecord
 
   def self.search(query, account_id: nil)
     embedding = Captain::Llm::EmbeddingService.new(account_id: account_id).get_embedding(query)
+    return none if embedding.blank?
+
     nearest_neighbors(:embedding, embedding, distance: 'cosine').limit(5)
   end
 

@@ -14,17 +14,32 @@ class Captain::Llm::EmbeddingService
   end
 
   def get_embedding(content, model: @embedding_model)
-    return [] if content.blank?
+    return nil if content.blank?
 
     instrument_embedding_call(instrumentation_params(content, model)) do
-      RubyLLM.embed(content, model: model).vectors
+      if minimax_provider?
+        KairosAgent.embed(content, model: KairosAgent::EMBEDDING_MODEL, type: KairosAgent::EMBEDDING_TYPE_DOCUMENT)
+      else
+        RubyLLM.embed(content, model: model).vectors
+      end
     end
   rescue RubyLLM::Error => e
     Rails.logger.error "Embedding API Error: #{e.message}"
-    raise EmbeddingsError, "Failed to create an embedding: #{e.message}"
+    nil
+  rescue StandardError => e
+    # Kairós: falha de embedding (rate limit da MiniMax, por exemplo) nao pode
+    # derrubar a resposta inteira do Captain. O FAQ semantico simplesmente fica
+    # sem resultado e o assistente continua respondendo.
+    Rails.logger.error "Embedding Error: #{e.message}"
+    nil
   end
 
   private
+
+  def minimax_provider?
+    endpoint = InstallationConfig.find_by(name: 'CAPTAIN_OPEN_AI_ENDPOINT')&.value.to_s
+    endpoint.include?('minimax')
+  end
 
   def instrumentation_params(content, model)
     {

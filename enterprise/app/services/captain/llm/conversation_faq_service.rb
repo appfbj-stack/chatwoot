@@ -42,6 +42,7 @@ class Captain::Llm::ConversationFaqService < Llm::BaseAiService
 
   def route_candidate(faq)
     embedding = embedding_service.get_embedding(candidate_text(faq))
+    return discard_observation(faq) if embedding.blank?
 
     return discard_observation(faq) if matching_record(approved_faqs, faq, embedding)
     return discard_observation(faq) if matching_record(dismissed_suggestions_for_language, faq, embedding)

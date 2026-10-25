@@ -12,6 +12,8 @@ module Enterprise::Concerns::Article
 
     def self.vector_search(params)
       embedding = Captain::Llm::EmbeddingService.new(account_id: params[:account_id]).get_embedding(params['query'])
+      return none if embedding.blank?
+
       records = joins(
         :category
       ).search_by_category_slug(
